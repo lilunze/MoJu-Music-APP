@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="src/css/rank.css">
+	<script src="src/js/jquery-1.11.3.min.js"></script>
+	 <script type="text/javascript">
+    	$('html').attr('style','font-size:'+$(window).width()/10+'px');
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"	
+   		});
+   		
+    </script>
+</head>
+<body>
+	<!-- 导航 -->
+	<div class="music-well">
+		<nav class="nav">
+			<div class="logo nav-list"><a href="./music.html">MoJu-Music</a></div>
+			<div class="nav-list"><a href="./music.html">发现</a></div>
+			<div class="nav-list"><a href="./fm.html">频道</a></div>
+		</nav>
+	</div>
+
+	<!-- 内容区 -->
+	<div class="wrapper">
+		<div class="background"></div>
+		<div class="rank-list">
+			<h2>日榜</h2>
+			<div class="daily"></div>
+		</div>
+		<div class="rank-list">
+			<h2>周榜</h2>
+			<div class="weekly"></div>
+		</div>
+		<div class="rank-list">
+			<h2>月榜</h2>
+			<div class="monthly"></div>
+		</div>
+	</div>
+	
+
+	<div class="template" style="display: none;">
+		<div id="template-rank" class="hover">	
+			<div class="img-info">
+				<a href="" class="jvc-link">
+					<img src="" class="jvc-cover">
+					<div class="jvc-author"></div>
+				</a>
+			</div>
+			<div class="rank-info">
+				<p class="jvc-tag"></p>
+				<div>
+					<div class="jvc-name"></div>					
+				</div>				
+			</div>			
+		</div>
+	</div>
+</body>
+</html>
+<script>
+	var type = location.search;
+	type= type.substring(6,type.length);
+	var dailyUrl,weeklyUrl,monthlyUrl;
+	if(type=='hot')
+	{
+		dailyUrl='http://www.app-echo.com/api/rank/sound-hot?periods=daily&limit=12';
+		weeklyUrl='http://www.app-echo.com/api/rank/sound-hot?periods=weekly&limit=12';
+		monthlyUrl='http://www.app-echo.com/api/rank/sound-hot?periods=monthly&limit=12';
+	}
+	else if(type=='origin')
+	{
+		dailyUrl='http://www.app-echo.com/api/rank/sound-origin?periods=daily&limit=12';
+		weeklyUrl='http://www.app-echo.com/api/rank/sound-origin?periods=weekly&limit=12';
+		monthlyUrl='http://www.app-echo.com/api/rank/sound-origin?periods=monthly&limit=12';
+	}
+	else if(type=='video')
+	{
+		dailyUrl='http://www.app-echo.com/api/rank/mv-hot?periods=daily&limit=12';
+		weeklyUrl='http://www.app-echo.com/api/rank/mv-hot?periods=weekly&limit=12';
+		monthlyUrl='http://www.app-echo.com/api/rank/mv-hot?periods=monthly&limit=12';
+	}
+	get_rank();
+	function get_rank()
+	{
+		// 获取日榜
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			type:'POST',
+			data:{'url':dailyUrl},
+			success:function(res)
+			{
+				var daily=res.lists.daily;
+				for(var i=0;i<daily.length;i++)
+				{
+					var id='daily-'+i
+					$('#template-rank').clone().attr('id',id).appendTo($('.daily')).show();
+					$('#'+id).find('.jvc-cover').attr('src',daily[i].pic||daily[i].cover_url);
+					$('#'+id).find('.jvc-name').html(daily[i].name);
+					$('#'+id).find('.jvc-author').html(daily[i].user.name);
+					$('#'+id).find('.jvc-tag').html(i+1);
+					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+daily[i].id);
+				}
+			}
+		})
+
+		// 获取周榜
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			type:'POST',
+			data:{'url':weeklyUrl},
+			success:function(res){
+				var weekly=res.lists.weekly;
+				for(var i=0;i<weekly.length;i++)
+				{
+					var id='weekly-'+i
+					$('#template-rank').clone().attr('id',id).appendTo($('.weekly')).show();
+					$('#'+id).find('.jvc-cover').attr('src',weekly[i].pic||weekly[i].cover_url);
+					$('#'+id).find('.jvc-name').html(weekly[i].name);
+					$('#'+id).find('.jvc-author').html(weekly[i].user.name);
+					$('#'+id).find('.jvc-tag').html(i+1);
+					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+weekly[i].id);
+				}
+			}
+		})
+
+		// 获取月榜
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			type:'POST',
+			data:{'url':monthlyUrl},
+			success:function(res){
+				var monthly=res.lists.monthly;
+				console.log(monthly);
+				for(var i=0;i<monthly.length;i++)
+				{
+					var id='monthly-'+i
+					$('#template-rank').clone().attr('id',id).appendTo($('.monthly')).show();
+					$('#'+id).find('.jvc-cover').attr('src',monthly[i].pic||monthly[i].cover_url);
+					$('#'+id).find('.jvc-name').html(monthly[i].name);
+					$('#'+id).find('.jvc-author').html(monthly[i].user.name);
+					$('#'+id).find('.jvc-tag').html(i+1);
+					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+monthly[i].id);
+				}
+
+			}
+		})
+	}
+</script>

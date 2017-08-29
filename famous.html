@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="src/css/famous.css">
+	<script src="src/js/jquery-1.11.3.min.js"></script>
+	 <script type="text/javascript">
+    	$('html').attr('style','font-size:'+$(window).width()/10+'px');
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"	
+   		});
+   		
+    </script>
+</head>
+<body>
+	<!-- 导航 -->
+	<div class="music-well">
+		<nav class="nav">
+			<div class="logo nav-list"><a href="./music.html">MoJu-Music</a></div>
+			<div class="nav-list"><a href="./music.html">发现</a></div>
+			<div class="nav-list"><a href="./fm.html">频道</a></div>
+		</nav>
+	</div>
+
+	<div class="wrapper">
+		<div class="content">
+			<h2>名人</h2>
+			<div class="famous min-warpper"></div>
+		</div>
+		<div class="content">
+			<h2>群星</h2>
+			<div class="star min-warpper"></div>
+		</div>
+		<div class="content">
+			<h2>新入驻</h2>
+			<div class="latest min-warpper"></div>
+		</div>
+		<div class="content">
+			<h2>推荐</h2>
+			<div class="recommend min-warpper"></div>
+		</div>
+		<div class="content">
+			<h2>24小时名人</h2>
+			<div class="daily min-warpper"></div>
+		</div>
+		<div class="content">
+			<h2>名人分类</h2>
+			<div class="classify "></div>
+			<div class="classify-content min-warpper"></div>
+		</div>
+	</div>
+	
+
+	<div class="template" style="display: none;">
+		<div id="template-famous" class="tem-font">
+			<div class="template-img">
+				<a href="" class="jvc-link">
+					<img src="" class="jvc-cover" width="200">
+				</a>
+			</div>
+			<div class="jvc-name"></div>
+			<div class="jvc-follow"></div>
+		</div>
+		<a class="tags" id="template-tag" href=""></a>
+		<a class="singers" id="template-singer" href=""></a>
+	</div>
+</body>
+</html>
+<script>
+	// 获取名人信息
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/famous-user?limit=8'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			// console.log(famous);
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='famous-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.famous')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].followed_count+'人 关注');
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
+			}
+		}
+	})
+
+	// 获取群星
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/top-user?page=1&limit=12'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='star-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.star')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].content);
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
+			}
+		}
+	})
+
+	// 获取新入驻
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/latest-users?page=1&limit=6'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='latest-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.latest')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].content);
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
+			}
+		}
+	})
+
+	// 获取推荐名人
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/recommend-users?page=1&limit=6'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='recommend-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.recommend')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].content);
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
+			}
+		}
+	})
+
+	// 获取24小时名人
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/daily-commend-users?page=1&limit=6'},
+		type:'POST',
+		success:function(res){
+			var famous=res.lists;
+			for(var i=0;i<famous.length;i++)
+			{
+				var id='daily-'+i;
+				$('#template-famous').clone().attr('id',id).appendTo($('.daily')).show();
+				$('#'+id).find('.jvc-cover').attr('src',famous[i].avatar);
+				$('#'+id).find('.jvc-name').html(famous[i].name);
+				$('#'+id).find('.jvc-follow').html(famous[i].content);
+				$('#'+id).find('.jvc-link').attr('href','singer.html?id='+famous[i].id);
+			}
+		}
+	})
+
+	// 获取名人分类标签
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/famous/type-list'},
+		type:'POST',
+		success:function(res){
+			var lists=res.lists;
+			for(var i=0;i<lists.length;i++)
+			{
+				var id='tag-'+i
+				$('#template-tag').clone().attr('id',id).html(lists[i].famous_type_title).appendTo($('.classify')).show()
+				$('#'+id).attr('href','javascript:show('+lists[i].famous_type+',"'+id+'")');
+			}
+		}
+	})
+	show(1);
+	function show(type,e)
+	{
+		var type=type || 1;
+		var url='http://www.app-echo.com/api/famous/user-list-by-type?famous_type='+type+'&limit=44';
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			data:{'url':url},
+			type:'POST',
+			success:function(res){
+				var users=res.famous_users[0].users;
+				console.log(users);
+				$('.classify-content').empty();
+				for(var i=0;i<users.length;i++)
+				{		
+					var id='singer-'+i;
+					$('#template-singer').clone().attr('id',id).html(users[i].name).appendTo($('.classify-content')).show();
+					$('#'+id).attr('href','singer.html?id='+users[i].id);
+				}
+			}
+		})
+		$('#'+e).css({'color':'#29DF29'}).siblings().css({'color':'#ff414b'})
+	}
+	
+</script>

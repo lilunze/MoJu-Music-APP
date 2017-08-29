@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="./src/css/fm.css">
+	<script src="src/js/jquery-1.11.3.min.js"></script>
+	 <script type="text/javascript">
+    	$('html').attr('style','font-size:'+$(window).width()/10+'px');
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"	
+   		});
+   		
+    </script>
+</head>
+<body>
+
+	<!-- 导航 -->
+	<div class="music-well">
+		<nav class="nav">
+			<div class="logo nav-list"><a href="./music.html">MoJu-Music</a></div>
+			<div class="nav-list"><a href="./music.html">发现</a></div>
+			<div class="nav-list"><a href="./fm.html">频道</a></div>
+		</nav>
+	<!-- 导航 -->
+
+	<!-- 内容 -->
+	<div class="wrapper">
+		<!-- 热度引导 -->
+		<div class="fm-list left">
+			<a class="fm-tags" href="javascript:set('hot')"><b>飙升专辑</b></a>
+			<a class="fm-tags" href="javascript:set('new')">最新</a>
+			<a class="fm-tags" href="javascript:set('hot')">最热</a>
+		</div>
+		<!-- 热度引导 -->
+
+		<!-- 频道内容 -->
+		<div class="fm-section">
+			<p><b>热门频道</b></p>
+			<div class="albums"></div>
+		</div>
+		<!-- 频道内容 -->
+
+		<!-- 频道分类 -->
+		<div class="fm-list right">
+			<div class="fm-tags"> <b>频道分类</b></div>
+			<div class="tags"></div>
+		</div>
+		<!-- 频道分类 -->
+
+	</div>
+	<!-- 内容 -->
+
+	<!-- 模版 -->
+	<div class="template" style="display: none;">
+		<div id="template-tag" class="fm-tags">
+			<a href="" class="jvc-link">
+				<img src="" class="jvc-icon"><span class="jvc-tag"></span>
+			</a>
+		</div>
+
+		<div id="template-album" class="album-wrapper">
+			<div class="album-img">
+				<img class="fm-tags-imgs" height="240" src="src/img/fm-tags.png" alt="233">
+				<img class="fm-tags-imgs two" src="src/img/fm-tags2.png" alt="233">
+				<img src="" class="jvc-cover" width="240" height="240;">
+				<div class="album-share">
+					<div><a class="jvc-name" class="jvc-name"></a></div>
+					<span><i class="icons">&#9835;</i><span class="jvc-sound-count"></span></span>
+					<span><i class="icons">&#10084;</i><span class="jvc-follow"></span></span>
+					<span><i class="icons share">&#10149;</i><span class="jvc-send"></span></span>
+				</div>
+				
+			</div>
+			
+			<div>
+				<div class="sound-title">频道热门回声</div>
+				<div class="sounds clearfix"></div>
+			</div>			
+		</div>
+
+		<div id="template-sound" class="musics fleft">
+			<a href="" class="jvc-sound-link">
+				<div class="musics-img fleft">
+					<img src="" class="jvc-avatar" width="55">
+				</div>
+				<div class="musics-songs">
+					<span class="jvc-song"></span>
+					<span class="jvc-singer"></span>
+				</div>				
+			</a>
+		</div>
+	</div>
+
+</body>
+</html>
+<script>
+	// 获取频道分类
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/channel/tag'},
+		type:'POST',
+		success:function(res){
+			var tags=res.categories;
+			for(var i=0;i<tags.length;i++)
+			{
+				var id='tag-'+i;
+				$('#template-tag').clone().attr('id',id).appendTo($('.tags')).show();
+				$('#'+id).find('.jvc-icon').attr('src',tags[i].icon_url);
+				$('#'+id).find('.jvc-tag').html(tags[i].name);
+				$('#'+id).find('.jvc-link').attr('href','javascript:set('+tags[i].id+')')
+			}
+		}
+	})
+
+	set('hot');
+	function set(type)
+	{
+		var url='http://www.app-echo.com/api/channel/index?order=hot';
+		if(type=='hot')
+		{
+			url=url;
+		}
+		else if(type=='new')
+		{
+			url='http://www.app-echo.com/api/channel/index?order=new';
+		}
+		else
+		{
+			url='http://www.app-echo.com/api/channel/index?tag_id='+type;
+		}
+		get_albums(url);
+	}
+
+	// 获取专辑列表
+	function get_albums(url)
+	{
+		$.ajax({
+			url:'http://47.94.100.222/change.php',
+			dataType:'json',
+			data:{'url':url},
+			type:'POST',
+			success:function(res)
+			{
+				$('.albums').empty();
+				var lists=res.channels;
+				console.log(lists);
+				for(var i=0;i<lists.length;i++)
+				{
+					var id='album-'+i;
+					$('#template-album').clone().attr('id',id).appendTo($('.albums')).show();
+					$('#'+id).find('.jvc-cover').attr('src',lists[i].pic);
+					$('#'+id).find('.jvc-name').attr('src',lists[i].name).html(lists[i].name);
+					$('#'+id).find('.jvc-sound-count').html(lists[i].sound_count);
+					$('#'+id).find('.jvc-follow').html(lists[i].follow_count);
+					$('#'+id).find('.jvc-send').html(lists[i].share_count);
+
+					var fm=lists[i].sound;
+					for(var j=0;j<fm.length;j++)
+					{
+						var ids='fm-'+i+'-'+j;
+						$('#template-sound').clone().attr('id',ids).appendTo($('#'+id).find('.sounds')).show();
+						$('#'+ids).find('.jvc-avatar').attr('src',fm[j].pic);
+						$('#'+ids).find('.jvc-name').html(fm[j].name);
+						$('#'+ids).find('.jvc-song').html(fm[j].name);
+						$('#'+ids).find('.jvc-singer').html(fm[j].user.name);
+						$('#'+ids).find('.jvc-sound-link').attr('href','sound.html?id='+fm[j].id)
+					}
+
+				}
+			}
+		})
+	}
+	
+</script>

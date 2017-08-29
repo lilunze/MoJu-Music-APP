@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>MoJu-Music</title>
+	<link rel="stylesheet" href="./src/css/sound.css">
+	<script src="src/js/jquery-1.11.3.min.js"></script>
+	 <script type="text/javascript">
+    	$('html').attr('style','font-size:'+$(window).width()/10+'px');
+   		document.addEventListener('plusready', function(){
+   			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"	
+   		});
+   		
+    </script>
+</head>
+<body>
+	<!-- 导航 -->
+	<div class="music-well">
+		<nav class="nav">
+			<div class="logo nav-list"><a href="./music.html">MoJu-Music</a></div>
+			<div class="nav-list"><a href="./music.html">发现</a></div>
+			<div class="nav-list"><a href="./fm.html">频道</a></div>
+	</nav>
+	</div>
+
+	<div class="wrapper clearfix">
+		<div class="sound-info f-left">
+			<h2><span class="jvc-name"></span></h2>
+			<div class="sound-img">
+				<img src="" class="jvc-cover" width='300'>
+				<div class="audio-control">
+					<a href="javascript:void(0)" id="play">►</a>					
+				</div>
+			</div>			
+			<div><span class="jvc-fm"></span></div>			
+			<p class="describtion jvc-info"></p>
+		</div>
+	
+		<div class="f-right">
+			<h2>热门评论</h2>
+			<div class="comments"></div>
+		</div>
+	</div>
+	
+
+	<div id="template" style="display: none;">
+		<div id="template-comment" class="comments-info">
+			<p class="author"><span class="jvc-name"></span>
+				<span class="jvc-date f-right"></span>
+			</p>	
+			<img class="jvc-avatar">
+			
+			<p class="content"><span class="jvc-content"></span></p>
+		</div>
+	</div>
+
+
+	<audio id="audio" class="jvc-audio"></audio>
+</body>
+</html>
+<script type="text/javascript">
+	var id = location.search;
+	id= id.substring(4,id.length);
+	
+	// 获取专辑详细信息
+	$.ajax({
+		url:'http://47.94.100.222/change.php',
+		dataType:'json',
+		data:{'url':'http://www.app-echo.com/api/sound/info?id='+id+'&comment=1'},
+		type:'POST',
+		success:function(res){
+			console.log(res);
+			$('.jvc-name').html(res.info.name);
+			$('.jvc-fm').html(res.info.channel.name);
+			$('.jvc-cover').attr('src',res.info.pic);
+			$('.jvc-info').html(res.info.info);
+			$('.jvc-audio').attr('src',res.info.source);
+			for(var i=0;i<res.comments.length;i++)
+			{
+				var id='comment-'+i;
+				var comment=res.comments[i]
+				$('#template-comment').clone().attr('id',id).appendTo($('.comments')).show();
+				$('#'+id).find('.jvc-name').html(comment.user.name);
+				$('#'+id).find('.jvc-avatar').attr('src',comment.user.avatar);
+
+				
+				var timer = parseInt($('#'+id).find('.jvc-date').html(comment.create_time).text()*1000);
+				var date = new Date(timer);
+				var commentTime =formatDateTime(date);
+						
+				function formatDateTime(date) {  
+					var m = date.getMonth() + 1;  
+					m = m < 10 ? ('0' + m) : m;  
+					var d = date.getDate();  
+					d = d < 10 ? ('0' + d) : d;  
+					var h = date.getHours();  
+					h=h < 10 ? ('0' + h) : h;  
+					var minute = date.getMinutes();  
+					minute = minute < 10 ? ('0' + minute) : minute;  
+					return m + '-' + d+' '+h+':'+minute;  
+				}; 
+				
+				$('#'+id).find('.jvc-date').html(commentTime);
+
+				$('#'+id).find('.jvc-content').html(comment.content);
+			}
+		}
+	})
+
+	
+	// $('#play').on('click',function(){
+	// 	document.getElementById('audio').play();
+	// })
+	// $('#pause').on('click',function(){
+	// 	document.getElementById('audio').pause();
+	// })
+	const audio = document.getElementById('audio');
+	const playM = document.getElementById('play');
+	function player(){
+		const method = audio.paused ? 'play' : 'pause';
+		audio[method]();
+	}
+	function text(){
+		const icon = audio.paused ? '►' : '❚ ❚';
+		playM.textContent = icon;
+	}
+	playM.addEventListener('click',player);
+	playM.addEventListener('click',text);
+</script> 
