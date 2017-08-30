@@ -1,0 +1,99 @@
+{
+  "fm.html": {
+    "href": "fm.html",
+    "resources": [
+      "src/css/fm.css",
+      "src/js/jquery-1.11.3.min.js",
+      "src/img/fm-tags.png",
+      "src/img/fm-tags2.png"
+    ],
+    "refer": [
+      "sound.html",
+      "fm.html"
+    ],
+    "priority": 0
+  },
+  "sound.html": {
+    "href": "sound.html",
+    "resources": [
+      "src/css/sound.css",
+      "src/js/jquery-1.11.3.min.js"
+    ],
+    "refer": [
+      "fm.html"
+    ],
+    "priority": 0
+  },
+  "rank.html": {
+    "href": "rank.html",
+    "resources": [
+      "src/css/rank.css",
+      "src/js/jquery-1.11.3.min.js"
+    ],
+    "refer": [
+      "sound.html",
+      "fm.html"
+    ],
+    "priority": 0
+  },
+  "singer.html": {
+    "href": "singer.html",
+    "resources": [
+      "src/css/singer.css",
+      "src/js/jquery-1.11.3.min.js"
+    ],
+    "refer": [],
+    "priority": 0
+  },
+  "famous.html": {
+    "href": "famous.html",
+    "resources": [
+      "src/css/famous.css",
+      "src/js/jquery-1.11.3.min.js"
+    ],
+    "refer": [
+      "singer.html",
+      "fm.html"
+    ],
+    "priority": 0
+  },
+  "album-detail.html": {
+    "href": "album-detail.html",
+    "resources": [
+      "src/css/album-detail.css",
+      "src/js/jquery-1.11.3.min.js"
+    ],
+    "refer": [
+      "album-detail.html"
+    ],
+    "priority": 0
+  },
+  "album.html": {
+    "href": "album.html",
+    "resources": [
+      "src/css/album.css",
+      "src/js/jquery-1.11.3.min.js"
+    ],
+    "refer": [
+      "album-detail.html",
+      "fm.html"
+    ],
+    "priority": 0
+  },
+  "index.html": {
+    "href": "index.html",
+    "resources": [
+      "src/css/music.css",
+      "src/js/jquery-1.11.3.min.js"
+    ],
+    "refer": [
+      "sound.html",
+      "index.html",
+      "fm.html",
+      "rank.html",
+      "famous.html",
+      "album.html"
+    ],
+    "priority": 0
+  }
+}
