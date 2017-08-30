@@ -20,7 +20,7 @@
 		<nav class="nav">
 			<div class="logo nav-list"><a href="./index.html">MoJu-Music</a></div>
 			<div class="nav-list"><a href="./index.html">发现</a></div>
-			<div class="nav-list"><a href="./fm.html">频道</a></div>
+			<div class="nav-list index"><a href="./fm.html">频道</a></div>
 		</nav>
 	</div>
 	<!-- 导航 -->
@@ -28,17 +28,11 @@
 	<!-- 内容 -->
 	<div class="wrapper">
 		<!-- 热度引导 -->
-		<!-- <div class="fm-list left">
-			<div>
-				<a class="fm-tags" href="javascript:set('hot')"><b>飙升专辑</b></a>
-				<a class="fm-tags" href="javascript:set('new')">最新</a>
-				<a class="fm-tags" href="javascript:set('hot')">最热</a>
-			</div>			
-			<div class="fm-list right">
-				<div class="fm-tags"> <b>频道分类</b></div>
-				<div class="tags"></div>
-			</div>
-		</div> -->
+		<div class="fm-list">
+			<a class="fm-tags" href="javascript:set('new')">最新</a>
+			<a class="fm-tags" href="javascript:set('hot')">最热</a>
+			<a class="tags"></a>
+		</div>
 		<!-- 热度引导 -->
 
 		<!-- 频道内容 -->
@@ -52,24 +46,25 @@
 
 	<!-- 模版 -->
 	<div class="template" style="display: none;">
-		<div id="template-tag" class="fm-tags">
+		<span id="template-tag" class="fm-tags">
 			<a href="" class="jvc-link">
 				<img src="" class="jvc-icon"><span class="jvc-tag"></span>
 			</a>
-		</div>
+		</span>
 
 		<div id="template-album" class="album-wrapper">
 				
 			<div class="album-img">
 				
 				<img src="" class="jvc-cover">				
-				<div class="album-share">					
-					<div class="icon-box"><i class="icons">&#9835;</i><span class="jvc-sound-count"></span></div>
-					<div class="icon-box"><i class="icons">&#10084;</i><span class="jvc-follow"></span></div>
-					<div class="icon-box"><i class="icons share">&#10149;</i><span class="jvc-send"></span></div>
+				<div class="album-share">	
+					<div class="album-title"><a class="jvc-name"></a></div>
+					<span class="icon-box"><i class="icons">&#9835;</i><span class="jvc-sound-count"></span></span>
+					<span class="icon-box"><i class="icons">&#10084;</i><span class="jvc-follow"></span></span>
+					<span class="icon-box"><i class="icons share">&#10149;</i><span class="jvc-send"></span></span>
 				</div>												
 			</div>
-			<div class="album-title"><a class="jvc-name"></a></div>
+			
 			<div>
 				<div class="sound-title">频道热门回声</div>
 				<div class="sounds "></div>
@@ -100,13 +95,17 @@
 		type:'POST',
 		success:function(res){
 			var tags=res.categories;
-			for(var i=0;i<tags.length;i++)
+			for(let i=0;i<tags.length;i++)
 			{
-				var id='tag-'+i;
+				let id='tag-'+i;
 				$('#template-tag').clone().attr('id',id).appendTo($('.tags')).show();
 				$('#'+id).find('.jvc-icon').attr('src',tags[i].icon_url);
-				$('#'+id).find('.jvc-tag').html(tags[i].name);
-				$('#'+id).find('.jvc-link').attr('href','javascript:set('+tags[i].id+')')
+				$('#'+id).find('.jvc-tag').html(tags[i].name);				
+				$('#'+id).find('.jvc-link').attr('href','javascript:set('+tags[i].id+')');
+
+				$('#'+id).click(function(){
+					$('#'+id).css('color','lightgreen').siblings().css('color','white');
+				})
 			}
 		}
 	})
@@ -142,7 +141,7 @@
 			{
 				$('.albums').empty();
 				var lists=res.channels;
-				console.log(lists);
+				// console.log(lists);
 				for(var i=0;i<lists.length;i++)
 				{
 					var id='album-'+i;

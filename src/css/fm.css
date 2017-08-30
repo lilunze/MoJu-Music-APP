@@ -10,8 +10,8 @@ html{
 }
 
 a{text-decoration: none;color:inherit;}
-b{font-size:.64rem;font-weight: bold;}
-h1{font-size: .64rem;margin:.8rem .267rem 0}
+b{font-size:.534rem;font-weight: bold;}
+h1{font-size: .64rem;margin:.3rem .267rem .267rem}
 
 /* -- 全局样式-- */
 
@@ -38,6 +38,10 @@ h1{font-size: .64rem;margin:.8rem .267rem 0}
 .nav .logo {
     margin-right: 1.334rem;
 }
+.index{
+    color:lightgreen;font-weight: bold;
+
+}
 /* -- 导航-- */
 
 /* -- 最外层的大盒子-- */
@@ -51,21 +55,22 @@ h1{font-size: .64rem;margin:.8rem .267rem 0}
 
 /* -- 热度引导和频道分类-- */
 .fm-list{
-    position: absolute;
-    width:3.4rem;
-    height:auto;
-    display: flex;flex-direction:column;
-    color:white;    
-    border-radius:.133rem;
-    font-size:.534rem;
+    font-size:.414rem;
+}
+.fm-title{
+    width:100%;
 }
 .fm-tags{
-    text-align: center;
-    line-height: 60px;
-    height:60px;
-    width:100%;
-    display: block;
-    border-bottom:1px solid white;
+    display: inline-block;
+    margin:.133rem .267rem;
+    padding:.153rem;
+    background:rgba(252, 0, 56, 0.60);
+    color:white;
+    font-weight: bold;
+    box-shadow: 0 0  .05rem rgba(252, 0, 56, 0.60);
+}
+.fm-tags:first-child{
+    color:lightgreen;
 }
 /* -- 热度引导和频道分类-- */
 
@@ -88,35 +93,30 @@ h1{font-size: .64rem;margin:.8rem .267rem 0}
   
 }
 .album-img{
-    display:flex;width:100%;position: relative;
+    width:100%;position: relative;
     
-}
-
-.fm-tags-imgs{
-    transition:all 0.7s ease;
-    position: absolute;opacity: 0;
-    left:110px;top:0;z-index: 1;
-}
-.fm-tags-imgs.two{
-    top:93px;z-index: 3;
 }
 .jvc-cover{
     position: relative;z-index: 2;
+    width:100%;
+    font-size: 0;
 }
 .album-share{   
     font-size:.534rem;
-    height:5rem;
-    align-items: center; 
     padding:.534rem .267rem;
-   
+    color:white;
+    position: absolute;
+    bottom:.3rem;z-index: 666;
+    text-align: center;
+    background:rgba(0,0,0,.5);
+    width:100%;
 }
 .icon-box{
     margin:.267rem 0;
 }
 .icons{
     font-style: normal;
-    margin:0 10px;
-    color:#ff414b;
+    margin:0 .267rem;
 }
 
 .sound-title{color:#666;
@@ -137,7 +137,7 @@ h1{font-size: .64rem;margin:.8rem .267rem 0}
     display:flex;width:100%;
 }
 .musics-img{
-    margin-right:10px;height:2.7rem;
+    margin-right:.267rem;height:2.7rem;
 }
 .jvc-song{
     width:6.34rem;
@@ -148,11 +148,8 @@ h1{font-size: .64rem;margin:.8rem .267rem 0}
     text-overflow: ellipsis;
     overflow: hidden;
 }
-.album-title{
-}
 .jvc-name{
     font-size: .534rem;
-    color:#ff2d86;
 }
 
 
@@ -162,7 +159,5 @@ h1{font-size: .64rem;margin:.8rem .267rem 0}
 .jvc-avatar{
     width:2.7rem;
 }
-.jvc-cover{
-    width:100%;height:5rem;position: relative;
-}
+
 /* -- 热门频道-- */
