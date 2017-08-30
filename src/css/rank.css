@@ -8,66 +8,63 @@ html{
     box-sizing: inherit;
 }
 a{text-decoration: none;color:inherit;}
+h1{font-size: .64rem;}
+p{margin:0;}
 .music-well
 {
 	width: 100%;
 	height: auto;
-	border-radius: 8px;
+	border-radius: .213rem;
 }
 .music-well .nav
 {
+    font-size: .48rem;
     width: 100%;
     display:flex;
-	height: 50px;
+	height: 1.334rem;
 	background: -webkit-linear-gradient(left,#ff2d86,#ff414b);
-    border-radius: 8px 8px 0 0;
-    color:white;line-height:50px;
+    border-radius:.213rem .213rem 0 0;
+    color:white;line-height:1.334rem;
 }
 .nav .nav-list{
-    margin:0 20px;cursor:pointer;
+    margin:0 .534rem;cursor:pointer;
 }
 .nav .logo {
-    margin-right: 50px;
+    margin-right: 1.334rem;
 }
 
 .wrapper{
-    display:flex;flex:1;max-width:1240px;
-    margin:20px auto 0;
+    display:flex;flex:1;
+    width: 100%;flex-direction: column;
+    padding:0 .267rem;
 }
-.background{
-    position: absolute;
-    left:0;top:137px;
-    margin:0 8px;
-    border-radius: 0 0 8px 8px;
-    width:99%;height: 370px;
-    background:-webkit-linear-gradient(left,#ff2d86,#ff414b);
-}
+
 .rank-list{
-    width:260px;margin:0 auto;;
+    width:100%;
     color:#666;
 }
 .rank-list .jvc-cover{
-    width:260px;font-size:0;
+    width:2.933rem;height:2.933rem;font-size:0;
 }
-
-.hover{display: inline-block;position: relative;}
+.jvc-name{
+    font-size: .373rem;
+}
+.hover{display: flex;height:2.933rem;
+    position: relative;width:100%;
+    margin:.267rem 0;}
 /* 榜单第一个样式 */
-.hover:first-child .jvc-cover{min-height:260px;}
-.hover:first-child .jvc-tag{
-    font-size: 60px;color:yellow;
+.hover:nth-child(1) .jvc-tag,
+.hover:nth-child(2) .jvc-tag,
+.hover:nth-child(3) .jvc-tag
+{
+    font-size:1.534rem;color:#fb4f29;
+    font-weight:bold;line-height:  2.933rem;
 }
-.hover:first-child{
-    color:white;
-}
-.hover:first-child .rank-info{
-    margin-bottom:40px;
-}
-/* 榜单第一个样式 */
 .img-info{
     transition: all 0.5s ease;
 }
 .hover:hover .img-info{
-    box-shadow:0 0 5px rgba(0,0,0,.5);
+    box-shadow:0 0 .133rem rgba(0,0,0,.5);
     transform:translateY(-1px);
 }
 .img-info .jvc-link{
@@ -76,19 +73,19 @@ a{text-decoration: none;color:inherit;}
 }
 .img-info .jvc-author{
     color:white;position: absolute;bottom:0;
-    transition:all 0.5s ease;
     background:rgba(0,0,0,0.5);
-    width:100%;height:50px;
-    line-height: 50px;
-    font-size:24px;margin:0;  
+    width:100%;height:.634rem;
+    line-height:.634rem;
+    font-size:.44rem;margin:0;  
 }
 .rank-info{
-    display:flex;max-width:260px;
-    align-items: center;margin:10px 0;
+    flex:1;padding:.634rem;justify-content: center;
+    align-items: center;margin:10px 0;overflow: hidden;
 }
-.rank-info .jvc-tag{
-    font-size:40px;color:#ff414b;
-    width:50px;font-weight: bold;margin:0;
+.jvc-tag{
+    font-size:1.066rem;text-align: center;
+    line-height:2.933rem;
+    width:1.534rem;font-weight: bold;margin:0;
 }
 
 

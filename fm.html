@@ -18,36 +18,35 @@
 	<!-- 导航 -->
 	<div class="music-well">
 		<nav class="nav">
-			<div class="logo nav-list"><a href="./music.html">MoJu-Music</a></div>
-			<div class="nav-list"><a href="./music.html">发现</a></div>
+			<div class="logo nav-list"><a href="./index.html">MoJu-Music</a></div>
+			<div class="nav-list"><a href="./index.html">发现</a></div>
 			<div class="nav-list"><a href="./fm.html">频道</a></div>
 		</nav>
+	</div>
 	<!-- 导航 -->
 
 	<!-- 内容 -->
 	<div class="wrapper">
 		<!-- 热度引导 -->
-		<div class="fm-list left">
-			<a class="fm-tags" href="javascript:set('hot')"><b>飙升专辑</b></a>
-			<a class="fm-tags" href="javascript:set('new')">最新</a>
-			<a class="fm-tags" href="javascript:set('hot')">最热</a>
-		</div>
+		<!-- <div class="fm-list left">
+			<div>
+				<a class="fm-tags" href="javascript:set('hot')"><b>飙升专辑</b></a>
+				<a class="fm-tags" href="javascript:set('new')">最新</a>
+				<a class="fm-tags" href="javascript:set('hot')">最热</a>
+			</div>			
+			<div class="fm-list right">
+				<div class="fm-tags"> <b>频道分类</b></div>
+				<div class="tags"></div>
+			</div>
+		</div> -->
 		<!-- 热度引导 -->
 
 		<!-- 频道内容 -->
 		<div class="fm-section">
-			<p><b>热门频道</b></p>
+			<h1>热门频道</h1>
 			<div class="albums"></div>
 		</div>
 		<!-- 频道内容 -->
-
-		<!-- 频道分类 -->
-		<div class="fm-list right">
-			<div class="fm-tags"> <b>频道分类</b></div>
-			<div class="tags"></div>
-		</div>
-		<!-- 频道分类 -->
-
 	</div>
 	<!-- 内容 -->
 
@@ -60,29 +59,27 @@
 		</div>
 
 		<div id="template-album" class="album-wrapper">
-			<div class="album-img">
-				<img class="fm-tags-imgs" height="240" src="src/img/fm-tags.png" alt="233">
-				<img class="fm-tags-imgs two" src="src/img/fm-tags2.png" alt="233">
-				<img src="" class="jvc-cover" width="240" height="240;">
-				<div class="album-share">
-					<div><a class="jvc-name" class="jvc-name"></a></div>
-					<span><i class="icons">&#9835;</i><span class="jvc-sound-count"></span></span>
-					<span><i class="icons">&#10084;</i><span class="jvc-follow"></span></span>
-					<span><i class="icons share">&#10149;</i><span class="jvc-send"></span></span>
-				</div>
 				
+			<div class="album-img">
+				
+				<img src="" class="jvc-cover">				
+				<div class="album-share">					
+					<div class="icon-box"><i class="icons">&#9835;</i><span class="jvc-sound-count"></span></div>
+					<div class="icon-box"><i class="icons">&#10084;</i><span class="jvc-follow"></span></div>
+					<div class="icon-box"><i class="icons share">&#10149;</i><span class="jvc-send"></span></div>
+				</div>												
 			</div>
-			
+			<div class="album-title"><a class="jvc-name"></a></div>
 			<div>
 				<div class="sound-title">频道热门回声</div>
-				<div class="sounds clearfix"></div>
+				<div class="sounds "></div>
 			</div>			
 		</div>
 
-		<div id="template-sound" class="musics fleft">
+		<div id="template-sound" class="musics">
 			<a href="" class="jvc-sound-link">
-				<div class="musics-img fleft">
-					<img src="" class="jvc-avatar" width="55">
+				<div class="musics-img ">
+					<img src="" class="jvc-avatar" >
 				</div>
 				<div class="musics-songs">
 					<span class="jvc-song"></span>
