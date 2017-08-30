@@ -93,6 +93,9 @@ h1,h2,h3,h4,h5,h6,p
 {
     background: -webkit-linear-gradient(right top, #f2a5af , #79a4c6); 
 }
+.list-content{
+	display: flex;flex:1;
+}
 .contents h1
 {
 	font-size: .64rem;
