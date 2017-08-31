@@ -14,20 +14,13 @@ html,body
     height: 100%;
     padding: 0;
     margin: 0;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 *, *:before, *:after {
     box-sizing: inherit;
 }
 a{text-decoration: none;color:inherit;}
 h2{text-align: center;}
-.clearfix:after {
-    content: "hello world";
-    clear: both;
-    display: block;
-    visibility: hidden;
-    height: 0;
-} 
 /* -- 导航-- */
 .music-well
 {
@@ -36,7 +29,7 @@ h2{text-align: center;}
     border-radius: .213rem;
     padding-top: 2.534rem;
     padding-bottom: 1.334rem;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 .music-well .subnav
 {
@@ -83,7 +76,7 @@ h2{text-align: center;}
 
 .wrapper
 {
-    width: 200%;
+    width: 20rem;
     font-size: 0;
 }
 .wrapper .dot li
@@ -104,7 +97,12 @@ h2{text-align: center;}
 }
 .sound-comment
 {
+    display: inline-block;
     width: 10rem;
+    overflow: hidden;
+    box-sizing: border-box;
+    padding: 0 0.2rem;
+    margin-top:-1rem;
 }
 .sound-info .sound-img{
     width:6rem;
@@ -126,13 +124,6 @@ h2{text-align: center;}
     transform:translate(-50%,-50%);
     cursor:pointer;
 }
-.sound-info #play{
-    display: inline-block;
-    color:#CF7F7F;
-    transform:scale(3);
-    line-height:100px;
-    text-align: center;
-}
 .sound-info .describtion{
     font-size: 0.3rem;
     width: 100%;
@@ -147,13 +138,19 @@ h2{text-align: center;}
     overflow: auto;
     margin-top: 0.5rem;
 }
+.sound-comment h2
+{
+    font-size: 0.5rem;
+    text-align: left;
+}
 .comments .comments-info{
-    padding:10px;position: relative;max-width:580px;
+    position: relative;
+    font-size: 0.3rem;
     border-bottom:1px solid #CF7F7F;
 }
 .comments .jvc-avatar{
     max-width:50px;border-radius: 50%;position: absolute;
-    left:10px;top:10px;
+    left:10px;top:0px;
 }
 .comments .author{margin-left:60px;}
 .comments .jvc-name{
