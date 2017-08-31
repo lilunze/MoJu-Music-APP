@@ -29,14 +29,18 @@
 	<div class="wrapper">
 		<!-- 热度引导 -->
 		<div class="fm-list">
-			<a class="fm-tags" href="javascript:set('new')">最新</a>
-			<a class="fm-tags" href="javascript:set('hot')">最热</a>
+			<h1>热门分类</h1>			
 			<a class="tags"></a>
 		</div>
 		<!-- 热度引导 -->
 
 		<!-- 频道内容 -->
 		<div class="fm-section">
+			<div class='fm-tags-wrapper'>
+				<a class='hot-new on' href="javascript:set('new')">最新</a>
+				<span >|</span>
+				<a class='hot-new' href="javascript:set('hot')">最热</a>	
+			</div>
 			<h1>热门频道</h1>
 			<div class="albums"></div>
 		</div>
@@ -72,15 +76,14 @@
 		</div>
 
 		<div id="template-sound" class="musics">
-			<a href="" class="jvc-sound-link">
-				<div class="musics-img ">
-					<img src="" class="jvc-avatar" >
-				</div>
-				<div class="musics-songs">
-					<span class="jvc-song"></span>
-					<span class="jvc-singer"></span>
-				</div>				
-			</a>
+			<a href="" class="jvc-sound-link">				
+				<img src="" class="jvc-avatar" >				
+			</a>	
+			<div class="musics-songs">				
+				<span class="jvc-singer"></span>
+				<span class="jvc-song"></span>
+			</div>				
+			
 		</div>
 	</div>
 
@@ -88,6 +91,9 @@
 </html>
 <script>
 	// 获取频道分类
+	$(".hot-new").click(function(){
+		$(".hot-new").toggleClass('on')
+	})
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
@@ -104,7 +110,7 @@
 				$('#'+id).find('.jvc-link').attr('href','javascript:set('+tags[i].id+')');
 
 				$('#'+id).click(function(){
-					$('#'+id).css('color','lightgreen').siblings().css('color','white');
+					$('#'+id).css('color','#30EDA8').siblings().css('color','white');
 				})
 			}
 		}
