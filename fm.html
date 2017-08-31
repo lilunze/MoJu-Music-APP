@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>MoJu-Music</title>
+	<title>MOJU</title>
 	<link rel="stylesheet" href="./src/css/fm.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 	 <script type="text/javascript">
@@ -30,8 +30,8 @@
 			<!-- 热度引导 -->
 			<div class="fm-list">		
 				<div class="tags">
-					<a class='hot-new on' href="javascript:set('new')">最新</a>
-					<a class='hot-new' href="javascript:set('hot')">最热</a>	
+					<a class='hot-new' href="javascript:set('new')">最新</a>
+					<a class='hot-new on' href="javascript:set('hot')">最热</a>	
 				</div>
 			</div>
 	
@@ -85,9 +85,6 @@
 </html>
 <script>
 	// 获取频道分类
-	$(".hot-new").click(function(){
-		$(".hot-new").toggleClass('on')
-	})
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
@@ -100,26 +97,29 @@
 				let id='tag-'+i;
 				$('#template-tag').clone().attr('id',id).appendTo($('.tags')).show();
 				$('#'+id).html(tags[i].name);				
-				$('#'+id).attr('href','javascript:set('+tags[i].id+')');
+				$('#'+id).attr('href','javascript:set('+tags[i].id+','+i+')');
 			}
 		}
 	})
 
 	set('hot');
-	function set(type)
+	function set(type,i)
 	{
 		var url='http://www.app-echo.com/api/channel/index?order=hot';
 		if(type=='hot')
 		{
 			url=url;
+			$('.tags a').eq(1).addClass('on').siblings().removeClass('on')
 		}
 		else if(type=='new')
 		{
 			url='http://www.app-echo.com/api/channel/index?order=new';
+			$('.tags a').eq(0).addClass('on').siblings().removeClass('on')
 		}
 		else
 		{
 			url='http://www.app-echo.com/api/channel/index?tag_id='+type;
+			$('.tags a').eq(i+2).addClass('on').siblings().removeClass('on')
 		}
 		get_albums(url);
 	}
