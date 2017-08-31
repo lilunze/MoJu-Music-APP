@@ -162,7 +162,6 @@ h1,h2,h3,h4,h5,h6,p
 {
 	display: inline-block;
 	width: 50%;
-	background: #fff;
 	overflow: hidden;
 	text-align: center;
 }
@@ -236,7 +235,7 @@ h1,h2,h3,h4,h5,h6,p
 	font-weight: normal;
 }
 .hot{
-	padding-left:.267rem;
+	padding-left:.767rem;overflow: hidden;
 }
 .hot_recommend
 {
@@ -271,16 +270,13 @@ h1,h2,h3,h4,h5,h6,p
 {
 	margin-top: .267rem;height:3.2rem;display: flex;
 }
-.hot
-{
-	overflow: hidden;
-}
 .tpl-hot .jvc-name
 {
 	font-size: .373rem;
 	padding:.213rem .267rem;
-    margin-top: .534rem;
-    text-align: center;
+    margin-top: -0.366rem;
+	text-align: center;
+	line-height: .634rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
@@ -292,14 +288,14 @@ h1,h2,h3,h4,h5,h6,p
 	font-size: .32rem;
 	line-height: .534rem;
 	height:.334rem;
-	padding:.213rem .267rem;
+	padding:0 .267rem .133rem;
 	color: #CF7F7F;
 	overflow : hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
-	margin-top: 20px;
+	margin-top:.267rem;
 }
 .template
 {
