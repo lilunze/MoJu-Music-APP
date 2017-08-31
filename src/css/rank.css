@@ -10,83 +10,105 @@ html{
 a{text-decoration: none;color:inherit;}
 h1{font-size: .64rem;}
 p{margin:0;}
-.music-well
-{
-	width: 100%;
-	height: auto;
-	border-radius: .213rem;
-}
-.music-well .nav
-{
-    font-size: .48rem;
-    width: 100%;
-    display:flex;
-	height: 1.334rem;
-	background: -webkit-linear-gradient(left,#ff2d86,#ff414b);
-    border-radius:.213rem .213rem 0 0;
-    color:white;line-height:1.334rem;
-}
-.nav .nav-list{
-    margin:0 .534rem;cursor:pointer;
-}
-.nav .logo {
-    margin-right: 1.334rem;
-}
 
+.nav{position:absolute;top:0;left:.15rem;
+    color:aqua;z-index: 666;}
+.rankTop-img{
+    width:100%;height:7rem;font-size: 0;
+    position: relative;
+    overflow: hidden;
+}
+.rankTop-img:after{
+    content:"";
+    width:100%;
+    height: 100%;
+    position: absolute;
+    top:0;left:0;
+    background:rgba(0,0,0,.5);
+    z-index: 1;
+}
+.top-img{width:100%;}
+.rank-top{
+    font-size: .64rem;
+}
+.rank-top-info{
+    position: absolute;
+    top:10%;
+    left: 50%;
+    transform: translateX(-50%);
+    color:white;
+    z-index: 2;
+}
+.rank-top-info>h1{font-size:1.2rem;margin-bottom:.267rem;}
+.rank-top-info>.sell-rank{
+    font-size: .5rem;
+    text-align: center;
+    width:4rem;
+    margin:0 auto;
+}
+.rankTop{
+    width: 100%;
+    font-size:.426rem;
+    margin:.267rem 0;
+    text-align: center;
+}
+.rankTop .rank-title{
+    display: inline-block;
+    width:29%;margin:0 .133rem;
+    padding:.267rem 0 0;
+}
 .wrapper{
     display:flex;flex:1;
     width: 100%;flex-direction: column;
-    padding:0 .267rem;
+    
 }
+.rank-list{display: none;}
+.rank-list.blocks{display: block;}
 
 .rank-list{
     width:100%;
     color:#666;
 }
-.rank-list .jvc-cover{
-    width:2.933rem;height:2.933rem;font-size:0;
-}
-.jvc-name{
-    font-size: .373rem;
-}
-.hover{display: flex;height:2.933rem;
-    position: relative;width:100%;
-    margin:.267rem 0;}
+.hover{height:2.5rem;
+    font-size:0;display: flex;
+    width:100%;
+    margin:.15rem 0;}
 /* 榜单第一个样式 */
 .hover:nth-child(1) .jvc-tag,
 .hover:nth-child(2) .jvc-tag,
 .hover:nth-child(3) .jvc-tag
 {
-    font-size:1.534rem;color:#fb4f29;
-    font-weight:bold;line-height:  2.933rem;
+    color:#fb4f29;font-size:.534rem;
 }
-.img-info{
-    transition: all 0.5s ease;
+.jvc-tag{text-align: center;
+    line-height:2.5rem;
+    height:100%;font-size:.534rem;
+    font-weight: bold;
 }
-.hover:hover .img-info{
-    box-shadow:0 0 .133rem rgba(0,0,0,.5);
-    transform:translateY(-1px);
+.jvc-link{
+    font-size: 0;vertical-align: top;
+    height:100%;width:3rem;
 }
-.img-info .jvc-link{
-    display: block;font-size: 0;position: relative;
-    text-align: center;
-}
-.img-info .jvc-author{
-    color:white;position: absolute;bottom:0;
-    background:rgba(0,0,0,0.5);
-    width:100%;height:.634rem;
-    line-height:.634rem;
-    font-size:.44rem;margin:0;  
-}
+.jvc-cover{width:100%;height:100%;font-size:0;}
 .rank-info{
-    flex:1;padding:.634rem;justify-content: center;
-    align-items: center;margin:10px 0;overflow: hidden;
+    width:6rem;height:100%;
+    margin:.0;position: relative;
 }
-.jvc-tag{
-    font-size:1.066rem;text-align: center;
-    line-height:2.933rem;
-    width:1.534rem;font-weight: bold;margin:0;
+.jvc-author{
+    height:.634rem;
+    font-size:.42rem; 
+    color:#CF7F7F;
+    position: absolute;
+    bottom:0;
+    left:.2rem;
 }
-
-
-
+.jvc-name{
+    font-size: .426rem;width:6rem;
+    line-height: .734rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding:.15rem ;
+}

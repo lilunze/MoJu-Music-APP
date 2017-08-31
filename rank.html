@@ -14,46 +14,48 @@
     </script>
 </head>
 <body>
-	<!-- 导航 -->
-	<div class="music-well">
-		<nav class="nav">
-			<div class="logo nav-list"><a href="./index.html">MoJu-Music</a></div>
-			<div class="nav-list"><a href="./index.html">发现</a></div>
-			<div class="nav-list"><a href="./fm.html">频道</a></div>
-		</nav>
+	<div class="nav"><a href="./index.html"><</a></div>
+	<div class="rankTop-img">
+		<img src="" class="top-img" alt="2333">
+		<div class="rank-top-info">
+			<h1>热门专辑</h1>
+			<h2 class="sell-rank">一 畅销榜 一</h2>
+		</div>
+		
 	</div>
-
+	<div class="rankTop">
+		<span class="rank-title">日排行</span>
+		<span class="rank-title">周排行</span>
+		<span class="rank-title">月排行</span>
+	</div>
 	<!-- 内容区 -->
 	<div class="wrapper">
-		<div class="rank-list">
-			<h1>日榜</h1>
+		
+		<div class="rank-list blocks">
+			
 			<div class="daily"></div>
 		</div>
 		<div class="rank-list">
-			<h1>周榜</h1>
+			
 			<div class="weekly"></div>
 		</div>
 		<div class="rank-list">
-			<h1>月榜</h1>
+			
 			<div class="monthly"></div>
 		</div>
 	</div>
 	
 
 	<div class="template" style="display: none;">
-		<div id="template-rank" class="hover">	
-			<p class="jvc-tag"></p>
-			<div class="img-info">
-				<a href="" class="jvc-link">
-					<img src="" class="jvc-cover">
-					<div class="jvc-author"></div>
-				</a>
+		<div id="template-rank" class="hover">			
+			<a href="" class="jvc-link">
+				<img src="" class="jvc-cover">					
+			</a>			
+			<div class="rank-info">								
+				<div class="jvc-name"></div>
+				<div class="jvc-author"></div>													
 			</div>
-			<div class="rank-info">
-				<div>
-					<div class="jvc-name"></div>					
-				</div>				
-			</div>			
+			<div class="jvc-tag"></div>				
 		</div>
 	</div>
 </body>
@@ -92,6 +94,7 @@
 			success:function(res)
 			{
 				var daily=res.lists.daily;
+				$(".top-img").attr('src',daily[0].pic||daily[0].cover_url);
 				for(var i=0;i<daily.length;i++)
 				{
 					var id='daily-'+i
@@ -99,7 +102,8 @@
 					$('#'+id).find('.jvc-cover').attr('src',daily[i].pic||daily[i].cover_url);
 					$('#'+id).find('.jvc-name').html(daily[i].name);
 					$('#'+id).find('.jvc-author').html(daily[i].user.name);
-					$('#'+id).find('.jvc-tag').html(i+1);
+					let t=i+1;t= t < 10 ? "0" + t : t;
+					$('#'+id).find('.jvc-tag').html(t);
 					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+daily[i].id);
 				}
 			}
@@ -120,7 +124,8 @@
 					$('#'+id).find('.jvc-cover').attr('src',weekly[i].pic||weekly[i].cover_url);
 					$('#'+id).find('.jvc-name').html(weekly[i].name);
 					$('#'+id).find('.jvc-author').html(weekly[i].user.name);
-					$('#'+id).find('.jvc-tag').html(i+1);
+					let t=i+1;t= t < 10 ? "0" + t : t;
+					$('#'+id).find('.jvc-tag').html(t);
 					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+weekly[i].id);
 				}
 			}
@@ -142,11 +147,15 @@
 					$('#'+id).find('.jvc-cover').attr('src',monthly[i].pic||monthly[i].cover_url);
 					$('#'+id).find('.jvc-name').html(monthly[i].name);
 					$('#'+id).find('.jvc-author').html(monthly[i].user.name);
-					$('#'+id).find('.jvc-tag').html(i+1);
+					let t=i+1;t= t < 10 ? "0" + t : t;
+					$('#'+id).find('.jvc-tag').html(t);
 					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+monthly[i].id);
 				}
 
 			}
+		})
+		$(".rank-title").click(function(){
+			
 		})
 	}
 </script>
