@@ -89,7 +89,6 @@ h1,h2,h3,h4,h5,h6,p
 }
 .lists
 {
-	clear: both;
 	border-bottom: 3px solid #fb4f29;
 	padding-bottom: .533rem;
 	font-size: 0;
@@ -102,7 +101,6 @@ h1,h2,h3,h4,h5,h6,p
 }
 .list
 {
-	display: inline-block;
 	width: 1.334rem;
 	height: 1.334rem;
 	border-radius: 50%;
@@ -140,8 +138,8 @@ h1,h2,h3,h4,h5,h6,p
 {
     background: -webkit-linear-gradient(right top, #f2a5af , #79a4c6); 
 }
-.list-content{
-	display: flex;flex:1;
+.lists-content{
+	display: flex;flex:1;align-items: center;justify-content: center;
 }
 .contents h1
 {
@@ -279,23 +277,27 @@ h1,h2,h3,h4,h5,h6,p
 }
 .tpl-hot .jvc-name
 {
-	font-size:.373rem;
-	margin-top:.534rem;
-	text-align: center;
-	display: -webkit-box;
-	-webkit-line-clamp: 2;
-	-webkit-box-orient: vertical;
+	font-size: .373rem;
+	padding:.213rem .267rem;
+    margin-top: .534rem;
+    text-align: center;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 .tpl-hot .jvc-tag
 {
 	font-size: .32rem;
 	line-height: .534rem;
-	height:1.066rem;
+	height:.334rem;
+	padding:.213rem .267rem;
 	color: #CF7F7F;
 	overflow : hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
-	-webkit-line-clamp: 2;
+	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
 	margin-top: 20px;
 }
