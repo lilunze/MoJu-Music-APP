@@ -18,11 +18,10 @@
 <body>
 	<div class="music-well">
 		<nav class="nav">
-			<div class="logo nav-list"><a href="./index.html">MoJu-Music</a></div>
-			<div class="nav-list"><a href="./index.html">发现</a></div>
-			<div class="nav-list"><a href="./fm.html">频道</a></div> 
-		</nav> 
-		
+			<div class="logo"></div>
+			<div class="search"><input type="text" placeholder="搜索音乐、歌词、电台"><a href="javascript:void(0)" id="search"></a></div>
+		</nav>
+		 
 		<div class="carousel">
 			<ul>
                 <li><a href="javascript:void(0)"><img src="https://al-qn-echo-image-cdn.app-echo.com/FhudDdm-is-t4SZBMWbUoY_5V4MS.png?imageMogr2/auto-orient/quality/100%7CimageView2/4/w/640/q/100"></a></li>
@@ -37,9 +36,8 @@
 		</div>
 	
 		<div class="music-content">
-			<!-- 榜单 -->
+			<!-- 榜单 --> 
 			<div class="lists">
-				<h1>榜单</h1>
 				<div class="lists-content">
 					<div class="list list-1">
 						<a href="rank.html?type=hot">热门</a>
@@ -78,19 +76,24 @@
 			<a class="template-cover jvc-link"><img src="" class="jvc-cover"></a>
 			<p class="jvc-name"></p>
 			<p class="jvc-fm"></p>
-			<div class="icon-info">
-				<span class='icons' ><i class="icon icon-share"></i><b class="jvc-share"></b></span>
-				<span class='icons'><i class="icon icon-like"></i><b class="jvc-like"></b></span>
-				<span class='icons'><i class="icon icon-comment"></i><b class="jvc-comment"></b></span>
-			</div>
 		</div>
 		<div id="template-hot" class="tpl-hot">
 			<a class="hot-cover jvc-link"><img src="" class="jvc-cover"></a>
 			<div class="hot-info">
 				<p class="jvc-name"></p>
 				<p class="jvc-tag"></p>
+				<p class="tags"><span class="jvc-like"></span>喜欢<span class="jvc-comment"></span>评论<span class="jvc-share"></span>分享</p>
 			</div>
 		</div>
+	</div>
+	
+	<div class="foot">
+		<ul class="nav-list">
+			<li><a href="./index.html" class="icon-index active"></a></li>
+			<li><a href="./fm.html" class="icon-fm"></a></li>
+			<li><a href="./fm.html" class="icon-play"></a></li>
+			<li><a href="./fm.html" class="icon-mall"></a></li>
+		</ul>
 	</div>
 </body>
 </html>
@@ -127,7 +130,7 @@
         }
         else
         {
-            $('.carousel ul').css({'margin-left':-10*3+'rem'});
+            $('.carousel ul').css({'margin-left':-10*4+'rem'});
             gi=4;
             prev();
         }  
@@ -157,10 +160,9 @@
 			url:'http://47.94.100.222/change.php',
 			dataType:'json',
 			type:'POST',
-			data:{'url':'http://www.app-echo.com/api/recommend/sound-day?page=1'},
+			data:{'url':'http://www.app-echo.com/api/recommend/sound-day?limit=6&page=1'},
 			success:function(res){
 				var lists=res.list;
-				// console.log(lists);
 				for(var i=0;i<lists.length;i++)
 				{
 					var id='list-'+i;
@@ -168,9 +170,6 @@
 					$('#'+id).find('.jvc-cover').attr('src',lists[i].sound.pic)
 					$('#'+id).find('.jvc-name').html(lists[i].sound.name)
 					$('#'+id).find('.jvc-fm').html(lists[i].sound.channel.name)
-					$('#'+id).find('.jvc-share').html(lists[i].sound.share_count)
-					$('#'+id).find('.jvc-like').html(lists[i].sound.like_count)
-					$('#'+id).find('.jvc-comment').html(lists[i].sound.comment_count)
 					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+lists[i].obj_id)
 				}
 			}
@@ -185,7 +184,7 @@
 			success:function(res){
 				var lists=res.hot_recommend;
 				console.log(lists);
-				for(var i=0;i<lists.length;i++)
+				for(var i=0;i<6;i++)
 				{
 					var id='hot-'+i;
 					$('#template-hot').clone().attr('id',id).appendTo($('.hot')).show();
@@ -193,6 +192,9 @@
 					$('#'+id).find('.jvc-name').html(lists[i].name);
 					$('#'+id).find('.jvc-tag').html(lists[i].channel.name)
 					$('#'+id).find('.jvc-link').attr('href','sound.html?id='+lists[i].id);
+					$('#'+id).find('.jvc-like').html(lists[i].like_count);
+					$('#'+id).find('.jvc-comment').html(lists[i].comment_count);
+					$('#'+id).find('.jvc-share').html(lists[i].share_count);
 				}
 			}
 		})

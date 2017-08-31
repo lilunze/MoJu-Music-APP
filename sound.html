@@ -2,12 +2,13 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>MoJu-Music</title>
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>MOJU</title>
 	<link rel="stylesheet" href="./src/css/sound.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 	 <script type="text/javascript">
     	$('html').attr('style','font-size:'+$(window).width()/10+'px');
-   		document.addEventListener('plusready', function(){
+   			document.addEventListener('plusready', function(){
    			//console.log("所有plus api都应该在此事件发生后调用，否则会出现plus is undefined。"	
    		});
    		
@@ -16,46 +17,49 @@
 <body>
 	<!-- 导航 -->
 	<div class="music-well">
-		<nav class="nav">
-			<div class="logo nav-list"><a href="./index.html">MoJu-Music</a></div>
-			<div class="nav-list"><a href="./index.html">发现</a></div>
-			<div class="nav-list"><a href="./fm.html">频道</a></div>
-	</nav>
-	</div>
+		<!-- 导航 -->
+		<nav class="subnav">
+			<a class="logo" href="javascript:history.back();"></a>
+			<div class="title"><span class="jvc-name"></span></div>
+		</nav>
+		<!-- 导航 -->
 
-	<div class="wrapper clearfix">
-		<div class="sound-info f-left">
-			<h2><span class="jvc-name"></span></h2>
-			<div class="sound-img">
-				<img src="" class="jvc-cover" width='300'>
-				<div class="audio-control">
-					<a href="javascript:void(0)" id="play">►</a>					
+		<div class="wrapper">
+			<div class="sound-info">
+				<div class="sound-img">
+					<img src="" class="jvc-cover">
+				</div>			
+				<!-- <div><span class="jvc-fm"></span></div> -->
+				<div class="describtion-wrap">
+					<p class="describtion jvc-info"></p>
 				</div>
-			</div>			
-			<div><span class="jvc-fm"></span></div>			
-			<p class="describtion jvc-info"></p>
+			</div>
+		
+			<div class="sound-comment">
+				<h2>热门评论</h2>
+				<div class="comments"></div>
+			</div>
+			<ul class="dot">
+				<li></li>
+				<li></li>
+			</ul>
 		</div>
-	
-		<div class="f-right">
-			<h2>热门评论</h2>
-			<div class="comments"></div>
+		
+
+		<div id="template" style="display: none;">
+			<div id="template-comment" class="comments-info">
+				<p class="author"><span class="jvc-name"></span>
+					<span class="jvc-date f-right"></span>
+				</p>	
+				<img class="jvc-avatar">
+				
+				<p class="content"><span class="jvc-content"></span></p>
+			</div>
 		</div>
+
+
+		<!-- <audio id="audio" class="jvc-audio"></audio> -->
 	</div>
-	
-
-	<div id="template" style="display: none;">
-		<div id="template-comment" class="comments-info">
-			<p class="author"><span class="jvc-name"></span>
-				<span class="jvc-date f-right"></span>
-			</p>	
-			<img class="jvc-avatar">
-			
-			<p class="content"><span class="jvc-content"></span></p>
-		</div>
-	</div>
-
-
-	<audio id="audio" class="jvc-audio"></audio>
 </body>
 </html>
 <script type="text/javascript">

@@ -12,6 +12,7 @@ html,body
  	font-family: '思源黑体';
  	padding: 0;
  	margin: 0;
+ 	-webkit-overflow-scrolling:touch;
 }
 a{text-decoration:none;color:inherit;}
 h1,h2,h3,h4,h5,h6,p
@@ -24,24 +25,67 @@ h1,h2,h3,h4,h5,h6,p
 	height: auto;
 	border-radius: .213rem;
 	padding-top: 1.334rem;
+	padding-bottom: 1.334rem;
 }
 .music-well .nav
 {
-    font-size: .48rem;
+    font-size: .4rem;
     width: 100%;
-    display:flex;
 	height: 1.334rem;
 	background: #ff414b;
-    color:white;line-height:1.334rem;
+    color:white;
+    line-height:1.334rem;
     position: fixed;
     top: 0;
     left: 0;
-}
-.nav .nav-list{
-    margin:0 .534rem;cursor:pointer;
-}
+    z-index: 100;
+} 
 .nav .logo {
-    margin-right: 1.334rem;
+    float: left;
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url(../img/logo.png);
+    background-size: 100% 100%;
+    margin: 0.3rem 0.4rem 0;
+}
+.search
+{
+	float: right;
+	width: 6rem;
+	height: 0.8rem;
+	background: #fff;
+	margin: 0.3rem 0.2rem 0 0;
+	border-radius: 0.4rem;
+	overflow: hidden;
+	position: relative;
+}
+.search input
+{
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+	background: none;
+	box-sizing: border-box;
+	padding-left: 0.4rem;
+
+}
+#search
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/search.png);
+	background-repeat: no-repeat;
+	background-size: 0.6rem 0.6rem;
+	background-position: 0.1rem 0.1rem;
+	position: absolute;
+	top: 0;
+	right: 0.2rem;
 }
 .carousel
 {
@@ -90,7 +134,7 @@ h1,h2,h3,h4,h5,h6,p
 .lists
 {
 	border-bottom: 3px solid #fb4f29;
-	padding-bottom: .533rem;
+	padding: .533rem 0;
 	font-size: 0;
 }
 .lists h1
@@ -143,47 +187,50 @@ h1,h2,h3,h4,h5,h6,p
 }
 .contents h1
 {
-	font-size: .64rem;
-	padding-left: .267rem;
-	margin: .8rem 0 .534rem;
+	font-size: .4rem;
+	text-align: center;
+	margin: .4rem 0;
 }
 .template-cover
 {
-	width: 5.34rem;
-	height: 5.34rem;
+	display: block;
+	width: 100%;
+	height: 4.6rem;
 }
 .template-cover img
 {
-	width: 4rem;
-	height:4rem;
+	width: 100%;
+	height: 100%;
 }
 
 .tpl-recommend
 {
 	display: inline-block;
-	width: 50%;
+	width: 4.6rem;
 	overflow: hidden;
-	text-align: center;
+	margin: 0 0.15rem 0.4rem;
 }
 .recommend{
-	padding:.267rem;
+	text-align: center;
+	font-size: 0;
 }
 .recommends
 {
 	display: inline-block;
 	vertical-align: top;
 	width: 100%;
+	border-bottom: 3px solid #fb4f29;
 }
 .tpl-recommend .jvc-name
-{	text-align: center;
+{	
 	width:90%;
 	font-size: .373rem;
 	line-height: .534rem;
-	padding-left:.267rem;	
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
 	margin: .167rem 0 0;
+	text-align: left;
 }
 .tpl-recommend .jvc-fm
 {
@@ -193,6 +240,7 @@ h1,h2,h3,h4,h5,h6,p
 	text-overflow: ellipsis;
 	overflow: hidden;
 	white-space: nowrap;
+	text-align: left;
 }
 .icon-info{
 	width:100%;text-align:left;
@@ -235,20 +283,23 @@ h1,h2,h3,h4,h5,h6,p
 	font-weight: normal;
 }
 .hot{
-	padding-left:.767rem;overflow: hidden;
+	overflow: hidden;
+	font-size: 0;
 }
 .hot_recommend
 {
 	display: inline-block;
 	vertical-align: middle;
 	width:100%;
+	font-size: 0;
 }
 .hot-cover
 {
 	display: inline-block;
 	vertical-align: top;
-	width:3.2rem;
-	height: 3.2rem;
+	width:2rem;
+	height: 2rem;
+	margin: 0 0.2rem;
 }
 .hot-cover img
 {
@@ -258,27 +309,24 @@ h1,h2,h3,h4,h5,h6,p
 }
 .hot-info
 {
-	display: flex;
-	height: 100%;
-	flex-direction: column;align-items: center;
-	justify-content: center;
-	
-	width: 4.8rem;
+	display: inline-block;
+	width: 7rem;
+	text-align: left;
 	
 }
 .tpl-hot
 {
-	margin-top: .267rem;height:3.2rem;display: flex;
+	padding: .267rem 0;
+	border-top: 1px solid #ec2963
 }
 .tpl-hot .jvc-name
 {
+	vertical-align: top;
 	font-size: .373rem;
-	padding:.213rem .267rem;
-    margin-top: -0.366rem;
-	text-align: center;
+	height: 0.634rem;
 	line-height: .634rem;
     display: -webkit-box;
-    -webkit-line-clamp: 2;
+    -webkit-line-clamp: 1;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;
@@ -287,15 +335,25 @@ h1,h2,h3,h4,h5,h6,p
 {
 	font-size: .32rem;
 	line-height: .534rem;
-	height:.334rem;
-	padding:0 .267rem .133rem;
+	height:.534rem;
 	color: #CF7F7F;
 	overflow : hidden;
 	text-overflow: ellipsis;
 	display: -webkit-box;
 	-webkit-line-clamp: 1;
 	-webkit-box-orient: vertical;
-	margin-top:.267rem;
+}
+.tags
+{
+	font-size: 0.32rem;
+	margin-top: 0.4rem;
+	margin-left: -0.2rem;
+}
+.tags span
+{
+	margin-left: 0.2rem;
+	margin-right: 0.1rem;
+	color: #ff414b;
 }
 .template
 {
@@ -307,3 +365,81 @@ h1,h2,h3,h4,h5,h6,p
 	margin: 0 auto;
 }
 
+
+.foot
+{
+    width: 100%;
+	height: 1.334rem;
+	background: #ff414b;
+    position: fixed;
+   	bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+.foot ul
+{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.foot li
+{
+	display: inline-block;
+	vertical-align: top;
+}
+.foot a
+{
+	margin: 0.3rem 0.6rem 0;
+}
+.icon-index
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/logo.png);
+	background-size: 100% 100%;
+}
+.icon-index.active
+{
+	background: url(../img/logo-active.png);
+	background-size: 100% 100%;
+}
+.icon-fm
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/fm.png);
+	background-size: 100% 100%;
+}
+.icon-fm.active
+{
+	background: url(../img/fm-active.png);
+	background-size: 100% 100%;
+}
+.icon-play
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/play.png);
+	background-size: 100% 100%;
+}
+.icon-play.active
+{
+	background: url(../img/play-active.png);
+	background-size: 100% 100%;
+}
+.icon-mall
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/mall.png);
+	background-size: 100% 100%;
+}
+.icon-mall.active
+{
+	background: url(../img/mall-active.png);
+	background-size: 100% 100%;
+}

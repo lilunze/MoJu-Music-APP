@@ -1,9 +1,19 @@
 /* -- 全局样式-- */
-html{
-    font-family: "Comic Sans MS";
-    box-sizing: border-box;
-    background:#fff5f4;
-    color:#535353;
+@font-face{
+	font-family: 'biko';
+	src: url('../fonts/biko.ttf');
+}
+@font-face{
+	font-family: '思源黑体';
+	src: url('../fonts/SYH.ttf');
+}
+html,body
+{
+ 	background: #fff5f4; 
+ 	font-family: '思源黑体';
+ 	padding: 0;
+ 	margin: 0;
+ 	-webkit-overflow-scrolling:touch;
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -19,26 +29,72 @@ h1{font-size: .64rem;margin:.25rem}
 .music-well
 {
 	width: 100%;
-	height: 1.334rem;
+	height: auto;
 	border-radius: .213rem;
+	padding-top: 2.534rem;
+	padding-bottom: 1.334rem;
+    overflow: hidden;
 }
 .music-well .nav
 {
-    font-size: .48rem;
+    font-size: .4rem;
     width: 100%;
-    display:flex;
-	height:100%;
-	background: -webkit-linear-gradient(left,#ff2d86,#ff414b);
-    border-radius:.213rem .213rem 0 0;
-    color:white;line-height:1.334rem;
-}
-.nav .nav-list{
-    margin:0 .534rem;cursor:pointer;
-}
+	height: 1.334rem;
+	background: #ff414b;
+    color:white;
+    line-height:1.334rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+} 
 .nav .logo {
-    margin-right: 1.334rem;
+    float: left;
+    display: inline-block;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url(../img/logo.png);
+    background-size: 100% 100%;
+    margin: 0.3rem 0.4rem 0;
 }
-.index{color:#30EDA8;}
+.search
+{
+	float: right;
+	width: 6rem;
+	height: 0.8rem;
+	background: #fff;
+	margin: 0.3rem 0.2rem 0 0;
+	border-radius: 0.4rem;
+	overflow: hidden;
+	position: relative;
+}
+.search input
+{
+	width: 100%;
+	height: 100%;
+	outline: none;
+	border: none;
+	margin: 0;
+	padding: 0;
+	vertical-align: top;
+	background: none;
+	box-sizing: border-box;
+	padding-left: 0.4rem;
+
+}
+#search
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/search.png);
+	background-repeat: no-repeat;
+	background-size: 0.6rem 0.6rem;
+	background-position: 0.1rem 0.1rem;
+	position: absolute;
+	top: 0;
+	right: 0.2rem;
+}
 /* -- 导航-- */
 
 /* -- 最外层的大盒子-- */
@@ -51,34 +107,35 @@ h1{font-size: .64rem;margin:.25rem}
 
 /* -- 热度引导和频道分类-- */
 .fm-list{
-    font-size:.414rem;
+    width: 100%;
+    background: #fff;
+    overflow: auto;
+    height: 1.2rem;
+    line-height: 1.2rem;
+    position: fixed;
+    top: 1.334rem;
+    left: 0;
+    z-index: 100;
 }
 .fm-title{
     width:100%;
 }
 .tags{
+    color:#A0A0A0;
+	width: 20rem;
+    font-size: 0;
+}
+.fm-tags,.hot-new
+{
     display: inline-block;
-    text-align: center; color:white;
-    margin-left:.1rem;
-
-}
-.fm-tags{ 
-    float: left;
-    height:.9rem;
-    width:3.08rem;
-    margin:.063rem;
-    padding:.153rem;
-    background:rgba(252, 0, 56, 0.60);
-    border-radius:3%;
-    font-weight: bold;
-    box-shadow: 0 0  .05rem rgba(252, 0, 56, 0.60);
-    line-height: .6rem;
-}
-.fm-tags:first-child{
-    height:1.9rem;line-height: 1.9rem;
-}
-.on{
-    color:#30EDA8;
+    font-size: 0.4rem;
+    padding: 0 0.2rem;
+    vertical-align: top;
+    height: 0.8rem;
+    margin-top: 0.2rem;
+    vertical-align: top;
+    line-height: 0.9rem;
+    border-radius: 0.2rem;
 }
 /* -- 热度引导和频道分类-- */
 
@@ -100,27 +157,36 @@ h1{font-size: .64rem;margin:.25rem}
 .share{transform:rotate(-45deg);
     display: inline-block;
 }
+.album-title
+{
+    font-size: .4rem;
+}
 .album-wrapper{
     width:100%;
     margin:0 0 .15rem 0;
 }
 .album-img{
-    width:100%;position: relative;
-    font-size: 0;height:9.85rem;
+    width:100%;
+    position: relative;
+    font-size: 0;
+    height:5rem;
+    overflow: hidden;
 }
 .jvc-cover{
     position: relative;z-index: 2;
     width:100%;
 }
 .album-share{   
-    font-size:.534rem;
+    font-size:.3rem;
     padding:.534rem .267rem;
     color:white;
     position: absolute;
-    bottom:0;z-index: 666;
+    bottom:0;
+    z-index: 6;
     text-align: center;
     background:rgba(0,0,0,.5);
     width:100%;
+    box-sizing: border-box;
 }
 .icon-box{
     margin:.267rem 0;
@@ -129,26 +195,27 @@ h1{font-size: .64rem;margin:.25rem}
     font-style: normal;
     margin:0 .267rem;
 }
-.sound-title{color:#666;
-    margin: .3rem .15rem;
-    font-size: .48rem;font-weight:bold;
+.sounds
+{
+    text-align: center;
+    font-size: 0;
 }
 .musics{
-    width:4.9rem;
-    height:6.5rem;
+    width:4.6rem;
+    height:6rem;
     display:inline-block;
+    margin: 0.2rem 0.1rem;
 }
 .jvc-sound-link{
     display:inline-block;
-    width: 4.8rem;height:4.8rem;
-    font-size:0;
-    margin-left: 0.1rem;
+    width: 100%;
+    height: 4.6rem;
 }
 .musics-songs{
     width:4.8rem;
-    padding:0 .167rem;
     display: inline-block;
     font-size: 0;
+    text-align: left;
 }
 .jvc-avatar{
     width:100%;height:100%;
@@ -166,7 +233,93 @@ h1{font-size: .64rem;margin:.25rem}
     color:#CF7F7F;font-size:.32rem;
     padding:.013rem .067rem;
 }
-.jvc-name{
-    font-size: .6rem;
+.on
+{
+    color: #fff;
+    background: #02B957;
 }
-/* -- 热门频道-- */
+
+
+
+
+
+
+/***** 底部 *****/
+
+.foot
+{
+    width: 100%;
+	height: 1.334rem;
+	background: #ff414b;
+    position: fixed;
+   	bottom: 0;
+    left: 0;
+    z-index: 100;
+}
+.foot ul
+{
+	margin: 0;
+	padding: 0;
+	text-align: center;
+}
+.foot li
+{
+	display: inline-block;
+	vertical-align: top;
+}
+.foot a
+{
+	margin: 0.3rem 0.6rem 0;
+}
+.icon-index
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/logo.png);
+	background-size: 100% 100%;
+}
+.icon-index.active
+{
+	background: url(../img/logo-active.png);
+	background-size: 100% 100%;
+}
+.icon-fm
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/fm.png);
+	background-size: 100% 100%;
+}
+.icon-fm.active
+{
+	background: url(../img/fm-active.png);
+	background-size: 100% 100%;
+}
+.icon-play
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/play.png);
+	background-size: 100% 100%;
+}
+.icon-play.active
+{
+	background: url(../img/play-active.png);
+	background-size: 100% 100%;
+}
+.icon-mall
+{
+	display: inline-block;
+	width: 0.8rem;
+	height: 0.8rem;
+	background: url(../img/mall.png);
+	background-size: 100% 100%;
+}
+.icon-mall.active
+{
+	background: url(../img/mall-active.png);
+	background-size: 100% 100%;
+}
