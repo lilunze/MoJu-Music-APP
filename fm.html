@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
+	<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 	<title>MoJu-Music</title>
 	<link rel="stylesheet" href="./src/css/fm.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
@@ -15,51 +16,38 @@
 </head>
 <body>
 
-	<!-- 导航 -->
+	
 	<div class="music-well">
+		<!-- 导航 -->
 		<nav class="nav">
-			<div class="logo nav-list"><a href="./index.html">MoJu-Music</a></div>
-			<div class="nav-list"><a href="./index.html">发现</a></div>
-			<div class="nav-list index"><a href="./fm.html">频道</a></div>
+			<div class="logo"></div>
+			<div class="search"><input type="text" placeholder="搜索音乐、歌词、电台"><a href="javascript:void(0)" id="search"></a></div>
 		</nav>
-	</div>
-	<!-- 导航 -->
-
-	<!-- 内容 -->
-	<div class="wrapper">
-		<!-- 热度引导 -->
-		<div class="fm-list">
-			<h1>热门分类</h1>			
-			<a class="tags"></a>
-		</div>
-		<!-- 热度引导 -->
-
-		<!-- 频道内容 -->
-		<div class="fm-section">
-			<div class='fm-tags-wrapper'>
-				<a class='hot-new on' href="javascript:set('new')">最新</a>
-				<span >|</span>
-				<a class='hot-new' href="javascript:set('hot')">最热</a>	
+		<!-- 导航 -->
+	
+		<!-- 内容 -->
+		<div class="wrapper">
+			<!-- 热度引导 -->
+			<div class="fm-list">		
+				<div class="tags">
+					<a class='hot-new on' href="javascript:set('new')">最新</a>
+					<a class='hot-new' href="javascript:set('hot')">最热</a>	
+				</div>
 			</div>
-			<h1>热门频道</h1>
+	
 			<div class="albums"></div>
 		</div>
-		<!-- 频道内容 -->
+		<!-- 内容 -->
+	
 	</div>
-	<!-- 内容 -->
 
 	<!-- 模版 -->
 	<div class="template" style="display: none;">
-		<span id="template-tag" class="fm-tags">
-			<a href="" class="jvc-link">
-				<img src="" class="jvc-icon"><span class="jvc-tag"></span>
-			</a>
-		</span>
+		<a id="template-tag" class="fm-tags"></a>
 
 		<div id="template-album" class="album-wrapper">
 				
-			<div class="album-img">
-				
+			<div class="album-img">	
 				<img src="" class="jvc-cover">				
 				<div class="album-share">	
 					<div class="album-title"><a class="jvc-name"></a></div>
@@ -70,7 +58,6 @@
 			</div>
 			
 			<div>
-				<div class="sound-title">频道热门回声</div>
 				<div class="sounds "></div>
 			</div>			
 		</div>
@@ -83,10 +70,17 @@
 				<span class="jvc-singer"></span>
 				<span class="jvc-song"></span>
 			</div>				
-			
 		</div>
 	</div>
-
+	
+	<div class="foot">
+		<ul class="nav-list">
+			<li><a href="./index.html" class="icon-index"></a></li>
+			<li><a href="./fm.html" class="icon-fm active"></a></li>
+			<li><a href="./fm.html" class="icon-play"></a></li>
+			<li><a href="./fm.html" class="icon-mall"></a></li>
+		</ul>
+	</div>
 </body>
 </html>
 <script>
@@ -105,13 +99,8 @@
 			{
 				let id='tag-'+i;
 				$('#template-tag').clone().attr('id',id).appendTo($('.tags')).show();
-				$('#'+id).find('.jvc-icon').attr('src',tags[i].icon_url);
-				$('#'+id).find('.jvc-tag').html(tags[i].name);				
-				$('#'+id).find('.jvc-link').attr('href','javascript:set('+tags[i].id+')');
-
-				$('#'+id).click(function(){
-					$('#'+id).css('color','#30EDA8').siblings().css('color','white');
-				})
+				$('#'+id).html(tags[i].name);				
+				$('#'+id).attr('href','javascript:set('+tags[i].id+')');
 			}
 		}
 	})
@@ -159,7 +148,7 @@
 					$('#'+id).find('.jvc-send').html(lists[i].share_count);
 
 					var fm=lists[i].sound;
-					for(var j=0;j<fm.length;j++)
+					for(var j=0;j<2;j++)
 					{
 						var ids='fm-'+i+'-'+j;
 						$('#template-sound').clone().attr('id',ids).appendTo($('#'+id).find('.sounds')).show();
