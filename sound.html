@@ -19,7 +19,7 @@
 	<div class="music-well">
 		<!-- 导航 -->
 		<nav class="subnav">
-			<a class="logo" href="javascript:history.back();"></a>
+			<a class="logo" href="javascript:void(0)"></a>
 			<div class="title"><span class="jvc-name"></span></div>
 		</nav>
 		<!-- 导航 -->
@@ -65,6 +65,10 @@
 <script type="text/javascript">
 	var id = location.search;
 	id= id.substring(4,id.length);
+	$('.logo').click(function(){
+		console.log(1)
+		location=history.back()
+	})
 	
 	// 获取专辑详细信息
 	$.ajax({
@@ -128,6 +132,4 @@
 		const icon = audio.paused ? '►' : '❚ ❚';
 		playM.textContent = icon;
 	}
-	playM.addEventListener('click',player);
-	playM.addEventListener('click',text);
 </script> 
