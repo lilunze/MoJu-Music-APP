@@ -60,6 +60,7 @@ h2{text-align: center;}
     left: 0;
     text-align: center;
     height: 100%;
+    z-index: 0;
 }
 .subnav .title .jvc-name
 {
