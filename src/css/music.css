@@ -42,7 +42,6 @@ h1,h2,h3,h4,h5,h6,p
 } 
 .nav .logo {
     float: left;
-    display: inline-block;
     width: 0.8rem;
     height: 0.8rem;
     background: url(../img/logo.png);

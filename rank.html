@@ -16,33 +16,31 @@
 <body>
 	<div class="nav"><a href="./index.html"><</a></div>
 	<div class="rankTop-img">
-		<img src="" class="top-img" alt="2333">
+		<div class="top-img-wrapper">
+			<img src="" class="top-img day-img" alt="loading...">
+			<img src="" class="top-img week-img" alt="loading...">
+			<img src="" class="top-img month-img" alt="loading...">
+		</div>
+		
 		<div class="rank-top-info">
-			<h1>热门专辑</h1>
+			<p>热门专辑</p>
 			<h2 class="sell-rank">一 畅销榜 一</h2>
 		</div>
 		
 	</div>
 	<div class="rankTop">
-		<span class="rank-title">日排行</span>
-		<span class="rank-title">周排行</span>
-		<span class="rank-title">月排行</span>
+		<span class="rank-title day pink">日排行</span>
+		<span class="rank-title week">周排行</span>
+		<span class="rank-title mouth">月排行</span>
 	</div>
 	<!-- 内容区 -->
 	<div class="wrapper">
-		
-		<div class="rank-list blocks">
-			
+		<div class="container">
 			<div class="daily"></div>
-		</div>
-		<div class="rank-list">
-			
 			<div class="weekly"></div>
+			<div class="monthly"></div>	
 		</div>
-		<div class="rank-list">
-			
-			<div class="monthly"></div>
-		</div>
+		
 	</div>
 	
 
@@ -94,7 +92,7 @@
 			success:function(res)
 			{
 				var daily=res.lists.daily;
-				$(".top-img").attr('src',daily[0].pic||daily[0].cover_url);
+				$(".day-img").attr('src',daily[0].pic||daily[0].cover_url);
 				for(var i=0;i<daily.length;i++)
 				{
 					var id='daily-'+i
@@ -117,6 +115,7 @@
 			data:{'url':weeklyUrl},
 			success:function(res){
 				var weekly=res.lists.weekly;
+				$(".week-img").attr('src',weekly[0].pic||weekly[0].cover_url);
 				for(var i=0;i<weekly.length;i++)
 				{
 					var id='weekly-'+i
@@ -140,6 +139,7 @@
 			success:function(res){
 				var monthly=res.lists.monthly;
 				console.log(monthly);
+				$(".month-img").attr('src',monthly[0].pic||monthly[0].cover_url);
 				for(var i=0;i<monthly.length;i++)
 				{
 					var id='monthly-'+i
@@ -154,8 +154,13 @@
 
 			}
 		})
-		$(".rank-title").click(function(){
-			
-		})
+		$(".rankTop>.rank-title").each(function(i){					
+			$(this).click(function(){
+				$(this).addClass("pink").siblings().removeClass("pink");
+				$(".container").css({"left":-i*10+"rem"});
+				$(".top-img-wrapper").css({"left":-i*10+"rem"});
+
+			})			
+		})		
 	}
 </script>
