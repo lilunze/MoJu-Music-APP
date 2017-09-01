@@ -14,27 +14,22 @@
     </script>
 </head>
 <body>
-	<!-- 导航 -->
-	<div class="music-well">
-		<nav class="nav">
-			<div class="logo nav-list"><a href="./index.html">MoJu-Music</a></div>
-			<div class="nav-list"><a href="./index.html">发现</a></div>
-			<div class="nav-list"><a href="./fm.html">频道</a></div>
-		</nav>
-	<!-- 导航 -->
+	<div class="nav">
+			<a class="home" href="./index.html"><</a>
+			<span>专辑</span>
+	</div>
 
 	<!-- 内容 -->
 	<div class="wrapper">
 		<!-- 热度引导 -->
-		<div class="fm-list left">
-				<a class="fm-tags" href="javascript:tab('new')">新上专辑</a>
-				<a class="fm-tags" href="javascript:tab('hot')">热门</a>		
+		<div class="fm-list ">				
+			<a class="fm-tags" href="javascript:tab('hot')">热门 |</a>	
+			<a class="fm-tags" href="javascript:tab('new')">新上专辑</a>	
 		</div>
 		<!-- 热度引导 -->
 		
 		<!-- 专辑内容 -->
-		<div class="fm-section clearfix">
-			<h2>专辑列表</h2>
+		<div class="fm-section">
 			<div class="albums"></div>
 		</div>
 		
@@ -45,8 +40,8 @@
 
 	<!-- 模版 -->
 	<div id="template" style="display: none;">
-		<a id="template-album" class="album-info fleft">
-			<div><img src="" class="jvc-cover" style="width: 150px"></div>
+		<a id="template-album" class="album-info">
+			<div><img src="" class="jvc-cover"></div>
 			<h3 class="jvc-name"></h3>
 			<div class="jvc-singer"></div>
 			<div>评分：<span class="jvc-star"></span></div>

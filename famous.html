@@ -14,22 +14,22 @@
     </script>
 </head>
 <body>
-	<!-- 导航 -->
-	<div class="music-well">
-		<nav class="nav">
-			<div class="logo nav-list"><a href="./index.html">MoJu-Music</a></div>
-			<div class="nav-list"><a href="./index.html">发现</a></div>
-			<div class="nav-list"><a href="./fm.html">频道</a></div>
-		</nav>
+	<div class="nav">
+		<a class="home" href="./index.html"><</a>
+		<span>名人</span>
 	</div>
 
+	<div class="classify-box">
+		<div class="classify "></div>
+		<div class="classify-content on"></div>
+	</div>
 	<div class="wrapper">
 		<div class="content">
-			<h2>名人</h2>
+			<h2>推荐名人</h2>
 			<div class="famous min-warpper"></div>
 		</div>
 		<div class="content">
-			<h2>群星</h2>
+			<h2>推荐群星</h2>
 			<div class="star min-warpper"></div>
 		</div>
 		<div class="content">
@@ -44,25 +44,18 @@
 			<h2>24小时名人</h2>
 			<div class="daily min-warpper"></div>
 		</div>
-		<div class="content">
-			<h2>名人分类</h2>
-			<div class="classify "></div>
-			<div class="classify-content min-warpper"></div>
-		</div>
 	</div>
 	
 
 	<div class="template" style="display: none;">
-		<div id="template-famous" class="tem-font">
-			<div class="template-img">
-				<a href="" class="jvc-link">
-					<img src="" class="jvc-cover" width="200">
-				</a>
-			</div>
+		<div id="template-famous" class="tem-font">			
+			<a href="" class="jvc-link">
+				<img src="" class="jvc-cover" >
+			</a>
 			<div class="jvc-name"></div>
 			<div class="jvc-follow"></div>
-		</div>
-		<a class="tags" id="template-tag" href=""></a>
+		</div>		
+			<a class="tags" id="template-tag" href=""></a>
 		<a class="singers" id="template-singer" href=""></a>
 	</div>
 </body>
@@ -207,7 +200,10 @@
 				}
 			}
 		})
-		$('#'+e).css({'color':'#29DF29'}).siblings().css({'color':'#ff414b'})
+		$('#'+e).css({'color':'#29DF29'}).siblings().css({'color':'#535353'});
+		$('#'+e).click(function(){
+			$(".classify-content").toggleClass("on");
+		})
 	}
 	
 </script>
