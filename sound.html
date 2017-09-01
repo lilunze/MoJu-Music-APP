@@ -19,7 +19,7 @@
 	<div class="music-well">
 		<!-- 导航 -->
 		<nav class="subnav">
-			<a class="logo" href="javascript:history.back();"></a>
+			<a class="logo" href="javascript:void()" onclick="window.history.back()"></a>
 			<div class="title"><span class="jvc-name"></span></div>
 		</nav>
 		<!-- 导航 -->
@@ -128,6 +128,4 @@
 		const icon = audio.paused ? '►' : '❚ ❚';
 		playM.textContent = icon;
 	}
-	playM.addEventListener('click',player);
-	playM.addEventListener('click',text);
 </script> 
