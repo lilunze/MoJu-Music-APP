@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>MoJu-Music</title>
+	<title>MOJU</title>
 	<link rel="stylesheet" href="src/css/famous.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 	 <script type="text/javascript">
@@ -14,22 +14,20 @@
     </script>
 </head>
 <body>
-	<div class="nav">
-		<a class="home" href="./index.html"><</a>
-		<span>名人</span>
-	</div>
+	<!-- 导航 -->
+	<nav class="subnav">
+		<a class="logo" href="javascript:void()" onclick="window.history.back()"></a>
+		<div class="title"><span class="jvc-name">名人</span></div>
+	</nav>
+	<!-- 导航 -->
 
-	<div class="classify-box">
-		<div class="classify "></div>
-		<div class="classify-content on"></div>
-	</div>
 	<div class="wrapper">
 		<div class="content">
 			<h2>推荐名人</h2>
 			<div class="famous min-warpper"></div>
 		</div>
 		<div class="content">
-			<h2>推荐群星</h2>
+			<h2>群星</h2>
 			<div class="star min-warpper"></div>
 		</div>
 		<div class="content">
@@ -44,6 +42,13 @@
 			<h2>24小时名人</h2>
 			<div class="daily min-warpper"></div>
 		</div>
+
+		<div class="classify-box">
+			<div class="tags-wrap">
+				<div class="classify"></div>
+			</div>
+			<div class="classify-content"></div>
+		</div>
 	</div>
 	
 
@@ -55,7 +60,7 @@
 			<div class="jvc-name"></div>
 			<div class="jvc-follow"></div>
 		</div>		
-			<a class="tags" id="template-tag" href=""></a>
+		<a class="tags" id="template-tag" href=""></a>
 		<a class="singers" id="template-singer" href=""></a>
 	</div>
 </body>
@@ -106,7 +111,7 @@
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
-		data:{'url':'http://www.app-echo.com/api/famous/latest-users?page=1&limit=6'},
+		data:{'url':'http://www.app-echo.com/api/famous/latest-users?page=1&limit=8'},
 		type:'POST',
 		success:function(res){
 			var famous=res.lists;
@@ -126,7 +131,7 @@
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
-		data:{'url':'http://www.app-echo.com/api/famous/recommend-users?page=1&limit=6'},
+		data:{'url':'http://www.app-echo.com/api/famous/recommend-users?page=1&limit=8'},
 		type:'POST',
 		success:function(res){
 			var famous=res.lists;
@@ -146,7 +151,7 @@
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
-		data:{'url':'http://www.app-echo.com/api/famous/daily-commend-users?page=1&limit=6'},
+		data:{'url':'http://www.app-echo.com/api/famous/daily-commend-users?page=1&limit=8'},
 		type:'POST',
 		success:function(res){
 			var famous=res.lists;
@@ -190,7 +195,6 @@
 			type:'POST',
 			success:function(res){
 				var users=res.famous_users[0].users;
-				console.log(users);
 				$('.classify-content').empty();
 				for(var i=0;i<users.length;i++)
 				{		
@@ -200,11 +204,15 @@
 				}
 			}
 		})
+<<<<<<< HEAD
 		$('#'+e).css({'color':'#29DF29'}).siblings().css({'color':'#535353'});
 		$('#'+e).click(function(){
 			$(".classify-content").toggleClass("on");
 			
 		})
+=======
+		$('#'+e).addClass('on').siblings().removeClass('on');
+>>>>>>> e9a3598c1b75857ad9578f7dc4433c1626256b5a
 	}
 	
 </script>

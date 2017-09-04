@@ -14,7 +14,7 @@ html,body
     height: 100%;
     padding: 0;
     margin: 0;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -46,6 +46,8 @@ h2{text-align: center;}
 } 
 .subnav .logo {
     display: inline-block;
+    z-index: 100;
+    position: absolute;
     width: 0.8rem;
     height: 0.8rem;
     background: url(../img/back.png);
@@ -80,14 +82,35 @@ h2{text-align: center;}
     width: 20rem;
     font-size: 0;
 }
+.wrapper .dot
+{
+    position: absolute;
+    bottom: 1rem;
+    left: 0;
+    width: 100%;
+    text-align: center;
+}
+.wrapper .dot
+{
+    margin: 0;
+    padding: 0;
+}
 .wrapper .dot li
 {
     list-style: none;
     display: inline-block;
-    width: 0.4rem;
-    height: 0.4rem;
-    border: 1px solid #fff;
+    width: 0.3rem;
+    height: 0.3rem;
+    border: 1px solid #666;
     box-sizing: border-box;
+    border-radius: 0.15rem;
+    margin: 0 0.1rem;
+    box-sizing: border-box;
+}
+.wrapper .dot li.active
+{
+    background: #ff414b;
+    border: none;
 }
 .sound-info{
     display: inline-block;
@@ -115,7 +138,15 @@ h2{text-align: center;}
 .sound-info .sound-img img
 {
     width: 100%;
-    height: 100%;
+    height: 100%;   
+}
+.sound-info .sound-img.active
+{
+    animation: circle 5s infinite linear;
+}
+@-webkit-keyframes circle{
+    0%{ transform:rotate(0deg)}
+    100%{ transform:rotate(360deg)}
 }
 .sound-info .audio-control{
     position: absolute;
@@ -135,9 +166,11 @@ h2{text-align: center;}
 }
 .describtion-wrap
 {
-    height: 3rem;
+    height: 6rem;
     overflow: auto;
     margin-top: 0.5rem;
+    box-sizing: border-box;
+    padding: 0 2rem;
 }
 .sound-comment h2
 {

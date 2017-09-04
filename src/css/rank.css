@@ -1,8 +1,12 @@
 html{
-    font-family: "Comic Sans MS";
     box-sizing: border-box;
     background:#fff5f4;
     color:#535353;
+}
+body
+{
+    padding: 0;
+    margin: 0;
 }
 *, *:before, *:after {
     box-sizing: inherit;
@@ -10,111 +14,141 @@ html{
 a{text-decoration: none;color:inherit;}
 h1{font-size: .64rem;}
 p{margin:0;}
-
-.nav{position:absolute;top:0;left:.15rem;
-    color:white;z-index: 666;}
-.rankTop-img{
-    width:100%;height:6.3rem;font-size: 0;
-    position: relative;
-    overflow: hidden;
-}
-.rankTop-img:after{
-    content:"";
-    width:100%;
-    height: 100%;
-    position: absolute;
-    top:0;left:0;
-    background:rgba(0,0,0,.5);
-    z-index: 1;
-}
-.top-img-wrapper{
-    width:305%;position: absolute;left:0;top:0;
-    
-}
-.top-img{width:10rem;height:10rem;}
-.rank-top{
-    font-size: .64rem;
-}
-.rank-top-info{
-    position: absolute;
-    top:30%;
-    left: 50%;
-    transform: translateX(-50%);
+.subnav
+{
+    font-size: .4rem;
+    width: 100%;
+    height: 1.334rem;
+    background: #ff414b;
     color:white;
-    z-index: 2;
+    line-height:1.334rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+} 
+.subnav .logo {
+    display: inline-block;
+    z-index: 100;
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url(../img/back.png);
+    background-size: 100% 100%;
+    margin: 0.3rem 0.4rem 0;
 }
-.rank-top-info>p{
-    font-size:1.2rem;font-style: normal;
-    margin:0 0 .267rem;}
-.rank-top-info>.sell-rank{
-    font-size: .5rem;
+.subnav .title
+{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
     text-align: center;
-    width:4rem;
-    margin:0 auto;
+    height: 100%;
+    z-index: 0;
+    padding-top: 0.15rem;
+}
+.subnav .title .jvc-name
+{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 5rem;
+    margin: 0 auto;
+
 }
 .rankTop{
     width: 100%;
-    font-size:.426rem;
-    
+    height: 1rem;
+    position: fixed;
+    top: 1.334rem;
+    left: 0;
     text-align: center;
+    background: #fff;
+    z-index: 100;
+    font-size: 0;
 }
-.rankTop .rank-title{
+.rankTop span{
     display: inline-block;
-    width:29%;margin:0 .133rem;
-    padding:.267rem;
+    width: 33.333%;
+    height: 100%;
+    vertical-align: top;
+    font-size:.426rem;
+    line-height: 1rem;
+}
+.rankTop span.active
+{
+    color: #fff;
+    background: #02B957;
 }
 .wrapper{
     width: 100%;
-    overflow: hidden;
-    position: relative;
-    height:32.5rem;
-}
-.pink{color:#CF7F7F;}
-.container{
-    position: absolute;top:0;left:0;
-    width: 300%;display:flex;
 }
 
-.hover{height:3rem;
-    font-size:0;display: flex;
+.container{
+    width: 100%;
+    margin-top: 2.334rem;
+}
+
+.hover{
+    font-size:0;
     width:100%;
-    margin:.15rem 0;}
-.hover:nth-child(1) .jvc-tag,
-.hover:nth-child(2) .jvc-tag,
-.hover:nth-child(3) .jvc-tag
-{
-    color:#fb4f29;font-size:.534rem;
+    padding: 0.3rem 0 0.2rem;
+    border-bottom: 1px solid #ec2963;
 }
-.jvc-tag{text-align: center;
-    line-height:2.5rem;
-    height:100%;font-size:.534rem;
-    font-weight: bold;
-    width:.967rem;
-}
+
 .jvc-link{
-    font-size: 0;vertical-align: top;
-    height:100%;width:3rem;
+    display: inline-block;
+    font-size: 0;
+    vertical-align: top;
+    width: 2.6rem;
+    height: 2.6rem;
+    margin: 0 0.1rem 0;
 }
-.jvc-cover{width:100%;height:100%;font-size:0;}
-.rank-info{
-    width:6rem;height:100%;
-    margin:.0;position: relative;
+.jvc-cover
+{
+    width:100%;
+    height:100%;
+    font-size:0;
+}
+.rank-info
+{
+    display: inline-block;
+    vertical-align: top;
+    width:6rem;
+    height:100%;
+    margin:.0;
 }
 .jvc-author{
-    height:.634rem;
-    font-size:.42rem; 
+    height:.5rem;
+    line-height: 0.5rem;
+    font-size:.4rem; 
     color:#CF7F7F;
-    position: absolute;
-    bottom:0;
-    left:.2rem;
+    margin-top: 0.1rem;
 }
 .jvc-name{
-    font-size: .426rem;width:6rem;
-    line-height: .734rem;
+    font-size: .45rem;
+    width:100%;
+    height: 1.2rem;
+    line-height: .6rem;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;
-    padding:.15rem ;
+    margin-top: 0.2rem;
+}
+.tag
+{
+    font-size: 0.3rem;
+    line-height: 0.4rem;
+    margin-top: 0.3rem;
+    margin-left: -0.2rem;
+}
+.tag span
+{
+    margin: 0 0.1rem 0 0.2rem;
+    color: #ff414b;
 }

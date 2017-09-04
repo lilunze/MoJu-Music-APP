@@ -4,42 +4,96 @@ html{
     background:#fff5f4;
     color:#535353;
 }
-body{margin:0; font-size:.373rem;}
+body{
+    margin:0; 
+    font-size:.373rem;
+    -webkit-overflow-scrolling: touch;
+}
 *, *:before, *:after {
     box-sizing: inherit;
 }
 a{text-decoration: none;color:inherit;}
-.nav{height:1.38rem;text-align: center;
-    font-size: .48rem;line-height: 1.38rem;
-    box-shadow: 0 0 5px rgba(0,0,0,.5);}
-.title{text-align: center;}
-.home{float:left;margin-left:.15rem;font-size:.64rem;}
+.subnav
+{
+    font-size: .4rem;
+    width: 100%;
+    height: 1.334rem;
+    background: #ff414b;
+    color:white;
+    line-height:1.334rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+} 
+.subnav .logo {
+    display: inline-block;
+    z-index: 100;
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url(../img/back.png);
+    background-size: 100% 100%;
+    margin: 0.3rem 0.4rem 0;
+}
+.subnav .title
+{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    height: 100%;
+    z-index: 0;
+    padding-top: 0.15rem;
+}
+.subnav .title .jvc-name
+{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 5rem;
+    margin: 0 auto;
+
+}
+
+
 /* 名人分类 */
 .classify-box{
-    width:100%;position: relative;
+    width:100%;
+    background: #fff;
 }
-.classify{
-    width:100%;  
+.tags-wrap{
+    width:100%;
+    height: 1.2rem; 
+    border-bottom:1px solid #ec2963; 
+    overflow: auto;
+}
+.classify
+{
+    width: 30rem;
 }
 .classify-content{
-    position: absolute;left:0;top:100%;
-    background:white;
-    z-index: 999;
-}
-.classify-content.on{
-    display: none;
+    padding-bottom: 0.4rem;
+    overflow: hidden;
 }
 .tags{
     display: inline-block;
-    margin:0;
-    height:.9rem;line-height:.9rem;
-    border-bottom:1px solid #FF414A;
-    width: 2rem;
-    text-align: center;
+    font-size: 0.4rem;
+    padding: 0 0.2rem;
+    vertical-align: top;
+    height: 0.8rem;
+    margin-top: 0.2rem;
+    vertical-align: top;
+    line-height: 0.9rem;
+    border-radius: 0.2rem;
 }
-.tags:first-child
+.tags.on
 {
-    color: #29DF29;
+    background: #02B957;
+    color: #fff;
 }
 .singers{
     display: inline-block;
@@ -48,13 +102,21 @@ a{text-decoration: none;color:inherit;}
 
 /* 名人分类 */
 
-.warpper{
+.wrapper{
+    overflow: hidden;
     width:100%;
+    margin-top: 1.334rem;
 }
-.content{width:100%;margin-top:.267rem;}
+.content{
+    width:100%;
+    margin-bottom:.267rem;
+    background: #fff;
+    padding-top: 0.2rem;
+}
 .content>h2{
    font-size: .534rem;
    margin:.15rem;
+   border-bottom: 1px solid #ec2963;
 }
 .content .min-warpper{
     width:100%;
