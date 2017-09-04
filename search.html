@@ -3,6 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<title>MOJU</title>
+	<link rel="stylesheet" href="./src/css/search.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 	 <script type="text/javascript">
     	$('html').attr('style','font-size:'+$(window).width()/10+'px');
@@ -15,12 +16,19 @@
 <body>
 	<div class="result"></div>
 	<div class="template" style="display: none;">
-		<a id="template-item">
-			<p><img src="" class="jvc-cover"></p>
-			<p class="jvc-name"></p>
-			<p><span class="jvc-like"></span>喜欢</p>
-			<p><span class="jvc-play"></span>播放</p>
-			<p><span class="jvc-share"></span>分享</p>
+		<a id="template-item" class="results">
+			<img src="" class="jvc-cover">
+			<div class="search-info">
+				<div class="jvc-name"></div>
+				<div class="love">
+					<span class="jvc-like"></span>喜欢
+					<span class="jvc-play"></span>播放
+					<span class="jvc-share"></span>分享
+				</div>
+			</div>
+			
+			
+			
 		</a>
 	</div>
 </body>

@@ -1,0 +1,36 @@
+html{
+    font-family: "Comic Sans MS";
+    box-sizing: border-box;
+    background:#fff5f4;
+    color:#535353;
+}
+body{
+    margin:0; 
+    font-size:.373rem;
+    -webkit-overflow-scrolling: touch;
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+a{text-decoration: none;color:inherit;}
+.results{
+    display: block;padding:.3rem .15rem;
+}
+.results>div{display:inline-block;}
+.jvc-name{
+    overflow:hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width:8rem;
+}
+.jvc-cover{
+    width:1.5rem;height:1.5rem;font-size:0;
+    vertical-align: top;
+}
+.search-info{
+    position:relative;height:1.5rem;
+    border-bottom:1px solid #535353;}
+.love{position:absolute;bottom:.15rem;}
+.jvc-like,.jvc-play,.jvc-share{
+    color:coral;
+}
