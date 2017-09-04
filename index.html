@@ -138,9 +138,9 @@
 
    var interval=setInterval(function(){next()},5000);
    $('.carousel').swipe({
-        // click: function(event, target) {
-        //         window.location.href=$(target).parent().attr('href')
-        //     },
+        click: function(event, target) {
+                window.location.href=$(target).parent().attr('href')
+            },
         swipeLeft:function(){
             next();
             clearInterval(interval);
