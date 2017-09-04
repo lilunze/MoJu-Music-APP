@@ -42,15 +42,18 @@
 	<div id="template" style="display: none;">
 		<a id="template-album" class="album-info">
 			<div><img src="" class="jvc-cover"></div>
-			<h3 class="jvc-name"></h3>
-			<div class="jvc-singer"></div>
-			<div>评分：<span class="jvc-star"></span></div>
+			<div class="album-box">
+				<h3 class="jvc-name"></h3>
+				<div class="jvc-singer"></div>
+				<div class="star">评分：<span class="jvc-star"></span></div>
+			</div>
+			
 		</a>
 		<div id="template-classify">
 			<div class="album-nav">
-				<h3 class="album-h3">流派</h3>
+				
 				<div class="albun-block-wrapper">
-					<a class="album-block" href="javascript:set_type('A0')">全部</a>
+					<a class="album-block" href="javascript:set_type('A0')"><b>流派</b></a>
 					<a class="album-block" href="javascript:set_type('A1')">摇滚</a>
 					<a class="album-block" href="javascript:set_type('A2')">流行</a>
 					<a class="album-block" href="javascript:set_type('A3')">电子</a>
@@ -67,9 +70,8 @@
 			</div>
 			
 			<div class="album-nav">
-				<h3 class="album-h3">年代</h3>
 				<div class="albun-block-wrapper">
-					<a class="album-block" href="javascript:set_age('A0')">全部</a>
+					<a class="album-block" href="javascript:set_age('A0')"><b>年代</b></a>
 					<a class="album-block" href="javascript:set_age('A1')">70年代</a>
 					<a class="album-block" href="javascript:set_age('A2')">80年代</a>
 					<a class="album-block" href="javascript:set_age('A3')">90年代</a>

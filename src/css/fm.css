@@ -51,7 +51,6 @@ h1{font-size: .64rem;margin:.25rem}
 } 
 .nav .logo {
     float: left;
-    display: inline-block;
     width: 0.8rem;
     height: 0.8rem;
     background: url(../img/logo.png);

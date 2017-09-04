@@ -12,7 +12,7 @@ body{margin:0; font-size:.32rem;}
 }
 
 a{text-decoration: none;color:inherit;}
-b{font-weight: bold;}
+b{font-weight: bold;color:#535353;}
 
 /* -- 全局样式-- */
 /* --导航-- */
@@ -43,10 +43,6 @@ b{font-weight: bold;}
     line-height: 60px;
     width:100%;
 }
-.album-h3{
-    margin:0 0 .133rem 0;
-}
-
 .album-block{
     margin: 0 .48rem 0 0;
     text-align: center;
@@ -57,7 +53,15 @@ b{font-weight: bold;}
     width:3.19rem;
     margin:.15rem 0;
     height:4.5rem;
+    vertical-align:middle;
 }
+.albun-block-wrapper{
+    margin-top:.15rem;
+}
+/*评分位置*/
+.album-box{height:1.5rem;position: relative;}
+.star{position:absolute;bottom:0;}
+/*评分位置*/
 .jvc-cover{
     width:3.1rem;height:3.1rem;font-size: 0;
 }

@@ -32,8 +32,8 @@ a{text-decoration: none;color:inherit;}
 .tags{
     display: inline-block;
     margin:0;
-    height:1rem;line-height:1rem;
-    border-bottom:1px solid #666;
+    height:.9rem;line-height:.9rem;
+    border-bottom:1px solid #FF414A;
     width: 2rem;
     text-align: center;
 }
@@ -61,7 +61,8 @@ a{text-decoration: none;color:inherit;}
 }
 .content .tem-font{
   display: inline-block;
-  margin:0;width:2.5rem;height:3.3rem;
+  vertical-align: middle;
+  width:2.5rem;height:3.3rem;
   padding:.15rem;
 }
 .jvc-link{
@@ -75,15 +76,15 @@ a{text-decoration: none;color:inherit;}
 }
 .jvc-link:after{
     content:"V";font-size: .5rem;
-    width:.7rem;height:.7rem;
+    width:.6rem;height:.6rem;
     border-radius: 50%;
-    background: lightgreen;
+    background: #ff414b;
     color:white;
     display: block;
     position: absolute;
     bottom:0;right:0;
     text-align: center;
-    line-height:.8rem;  
+    line-height:.6rem;  
 }
 .content .jvc-name{
     margin: 0;
@@ -96,7 +97,7 @@ a{text-decoration: none;color:inherit;}
 	-webkit-box-orient: vertical;
 }
 .jvc-follow{
-    color:#CF7F7F;
+    color:#fb4f29;
     font-size:.35rem;
     width:100%;
     margin: 0;
