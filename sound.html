@@ -19,7 +19,7 @@
 
 		<div class="wrapper">
 			<div class="sound-info">
-				<div class="sound-img" id="sound-img">
+				<div class="sound-img">
 					<img src="" class="jvc-cover">
 				</div>			
 				<!-- <div><span class="jvc-fm"></span></div> -->
@@ -80,12 +80,11 @@
 			if(!$('#audio')[0].paused)
 			{
 				$('.sound-img').addClass('active');
-				// document.removeEventListener('touchstart',function(){$('#audio')[0].play();}, false);
+				document.removeEventListener('touchstart',function(){$('#audio')[0].play();}, false);
 			}
 			else
 			{
-				document.getElementById('#sound-img').addEventListener('touchstart', function(){$('#audio')[0].play();}, false);
-				 
+				document.addEventListener('touchstart', function(){$('#audio')[0].play();}, false);
 			}
 			
 		}
