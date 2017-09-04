@@ -18,7 +18,7 @@
 	<div class="template" style="display: none;">
 		<a id="template-item" class="results">
 			<img src="" class="jvc-cover">
-			<div class="">
+			<div class="search-info">
 				<div class="jvc-name"></div>
 				<div class="love">
 					<span class="jvc-like"></span>喜欢
@@ -37,6 +37,7 @@
 <script type="text/javascript">
 	var keywords = location.search;
 	keywords= keywords.substring(10,keywords.length);
+	
 	$.ajax({
 		url:'http://47.94.100.222/change.php',
 		dataType:'json',
