@@ -77,7 +77,16 @@
 			$('body').append(audio);
 			$('#audio').attr('src',url);
 			$('#audio')[0].play();
-			$('.sound-img').addClass('active');
+			if(!$('#audio')[0].paused)
+			{
+				$('.sound-img').addClass('active');
+				document.removeEventListener('touchstart',function(){$('#audio')[0].play();}, false);
+			}
+			else
+			{
+				document.addEventListener('touchstart', function(){$('#audio')[0].play();}, false);
+			}
+			
 		}
 	}
 	
