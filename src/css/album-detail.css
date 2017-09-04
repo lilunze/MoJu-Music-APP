@@ -12,9 +12,56 @@ body{
 }
 a{text-decoration: none;color:inherit;}
 ul,li{list-style: none;margin:0;padding:0 .3rem;}
+/* -- 全局样式-- */
+.subnav
+{
+    font-size: .4rem;
+    width: 100%;
+    height: 1.334rem;
+    background: #ff414b;
+    color:white;
+    line-height:1.334rem;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+} 
+.subnav .logo {
+    display: inline-block;
+    z-index: 100;
+    position: absolute;
+    width: 0.8rem;
+    height: 0.8rem;
+    background: url(../img/back.png);
+    background-size: 100% 100%;
+    margin: 0.3rem 0.4rem 0;
+}
+.subnav .title
+{
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    text-align: center;
+    height: 100%;
+    z-index: 0;
+}
+.subnav .title .jvc-name
+{
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    width: 5rem;
+    margin: 0 auto;
+    color:#fff;
 
+}
 .wrapper{
     width:100%;
+    padding-top: 1.334rem;
+    overflow: hidden;
 }
 
 /* 专辑列表 */
