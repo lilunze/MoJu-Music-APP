@@ -93,10 +93,8 @@ p{margin:0;}
 }
 
 .hover{
-    /*height:2.6rem;*/
     font-size:0;
     width:100%;
-    /*background: #fff;*/
     padding: 0.3rem 0 0.2rem;
     border-bottom: 1px solid #ec2963;
 }
