@@ -201,8 +201,8 @@
 			}
 		})
 		$('#'+e).css({'color':'#29DF29'}).siblings().css({'color':'#535353'});
-		$('.tags').click(function(){
-			$(this).attr(true,"true");
+		$('#'+e).click(function(){
+			$(".classify-content").toggleClass("on");
 			
 		})
 	}

@@ -11,60 +11,146 @@ body{
     box-sizing: inherit;
 }
 a{text-decoration: none;color:inherit;}
-ul,li{list-style: none;margin:.267rem 0;padding:0 0 .267rem 0;}
+ul,li{list-style: none;margin:0;padding:0 .3rem;}
+
 .wrapper{
     width:100%;
 }
 
 /* 专辑列表 */
+
 .albums-info{
-    width:100%;text-align: center;
-   
-}
-.other-albums{
     width:100%;
 }
-.other-albums .jvc-name{ 
-    text-overflow: ellipsis;
-    overflow: hidden;
-    white-space: nowrap;
-}
-.jvc-date{float:right;}
 /* 专辑列表 */
-
-/* 音乐列表 */
 
 .sound-from{
     float:right;
     text-align: left;
-    line-height: .6rem;
-    height:.6rem;
+    line-height:.6rem;
+    height:.7rem;
+    width: 3rem;
 }
 .jvc-icon{
     width:.6rem;
     vertical-align: middle;height:.6rem;font-size: 0;
 }
+.albums-background{
+    position: relative;width:100%;
+    height:6.8rem;overflow: hidden;
+}
+.img-star{width:9rem;height:4rem;
+position: relative;top:.8rem;left:.5rem;
+}
+.albums-background>.jvc-cover{
+    width:100%;height:100%;
+    position: absolute;left:0;top:0;
+    -webkit-filter: blur(.3rem);
+    z-index: -1;
+}
+.albums-background .clear{
+    width:4rem;height:4rem;
+    float: left;
+}
+.jvc-tag{font-size:.48rem;}
+.albums-background .jvc-name{
+    background:rgba(0,0,0,.6);
+    width:100%;
+    padding:.25rem .8rem;
+    position: absolute;bottom:0;left:0;
+    text-align: center;
+    color:white;
+    font-size: .68rem;
+    line-height:1rem;
+    overflow : hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+}
+.albums-star{
+    display: inline-block;height:100%;
+}
+.albums-star>.stars{
+    background:transparent;
+    margin:.38rem 0 0 .3rem; 
+    height:1rem; color:white;
+    line-height: 1rem;
+}
+.jvc-score{
+    line-height:1rem;
+    font-size:.5rem;
+   float:left;
+    width:1rem;height:1rem;border-radius: 50%;
+    background:lightgreen;
+}
+.albums-star>div{
+    height:.9rem;width:3.5rem;
+    line-height:.8rem;
+    text-align: center;
+    margin:.4rem 0 0 .5rem;
+    background:#F0EEEE;
+}
 .jvc-cover{
-    width:100%;height:10rem;
+    width:100%;height:3.5rem;
 }
 .sound-list{
-    border-bottom:1px solid #535353;
+    padding:.2rem  0;
+    border-bottom:1px solid #9B9696;
 }
-/* 音乐列表 */
+.sound-list .jvc-name{
+    font-size:.4rem;
+    line-height:.45rem;
+    overflow : hidden;
+    width:5rem;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    display:inline-block;
+}
+/*专辑信息list*/
+.albums-list{padding:0 .3rem;}
+.albums-title{
+    border-bottom:1px solid #9B9696;
+    line-height:1rem;
+    font-size:.373rem;
+}
+/*专辑信息info*/
+
+/*其他专辑样式*/
+.albums{
+    padding:0;
+}
+.other-albums{
+    width:3.3rem;padding:0;
+    margin:0 .01rem;
+    display:inline-block;
+    height:auto;
+}
+.other-albums .jvc-name{ 
+    text-overflow: ellipsis;
+    overflow: hidden;
+    padding:0 .3rem;
+    white-space: nowrap;
+}
+/*其他专辑样式*/
 
 /* 评论 */
+.comments{padding:0;}
 .comments-info{
     padding:.267rem;position: relative;
-    border-bottom:1px solid #535353;
+    border-bottom:1px solid #9B9696;
 }
 .jvc-avatar{
     width:1rem;height:1rem;
     border-radius: 50%;position: absolute;
-    left:.267rem;top:.267rem;vertical-align: middle;
+    left:.267rem;top:.15rem;vertical-align: middle;
 }
 .author{margin:9px 0 23px 60px;}
 .comments-info .jvc-name{
     margin-left:.534rem;
 }
-
+.jvc-date{
+    float:right;
+}
+.content{margin-top:.5rem;}
 /* 评论 */

@@ -17,30 +17,41 @@
 	
 	<div class="wrapper">
 		<div class="albums-info">
-			<div><img src="" class="jvc-cover" width="100%"></div>
-			<div>专辑名：<span class="jvc-name"></span></div>
-			<div>歌手名：<span class="jvc-singer"></span></div>
-			<div>专辑语种：<span class="jvc-language"></span></div>
-			<div>专辑风格：<span class="jvc-style"></span></div>
-			<div>专辑类别：<span class="jvc-classify"></span></div>
-			<div>唱片公司：<span class="jvc-published"></span></div>
-			<div>发行时间：<span class="jvc-date"></span></div>
+			<div class="albums-background">
+				<img src="" class="jvc-cover" width="100%">
+
+				<div class="img-star">
+					<img src="" class="jvc-cover clear" >
+					<div class="albums-star">
+						<div class="stars">
+							<span class="jvc-score"></span><span><span class="jvc-score-count"></span>人评分</span>
+						</div>
+						<div><span><span class="jvc-listen"></span>人想听 </span></div>
+						<div><span><span class="jvc-has-listen"></span>人听过</span></div>
+					</div>
+				</div>
+				
+				<div class="jvc-name"></div>
+			</div>
+			<div class="albums-list">
+				<div class="albums-title"><span class="jvc-singer"></span></div>
+				<div class="albums-title">专辑语种: <span class="jvc-language"></span></div>
+				<div class="albums-title">专辑风格: <span class="jvc-style"></span></div>
+				<div class="albums-title">专辑类别: <span class="jvc-classify"></span></div>
+				<div class="albums-title">唱片公司: <span class="jvc-published"></span></div>
+				<div class="albums-title">发行时间: <span class="jvc-date"></span></div>
+			</div>
+			
 			<div>
-				<span>评分:<span class="jvc-score"> </span> </span>
-				<span>评分人数:<span class="jvc-score-count"> </span> </span>
-				<span><span class="jvc-listen"></span>人想听 </span>
-				<span><span class="jvc-has-listen"></span>人听过</span>
-			</div>			
-			<div>
-				<h2 style="margin:10px auto 0;">此歌手的其他专辑</h2>
-				<ul class="albums"></ul>
+				<h2>歌曲列表</h2>
+				<ul class="sounds"></ul>
 			</div>
 		</div>
 		
 		<div class="album-music-list">
 			<div>
-				<h2 style="margin-top:0">专辑歌曲列表</h2>
-				<ul class="sounds"></ul>
+				<h2>此歌手的其他专辑</h2>
+				<ul class="albums"></ul>
 			</div>			
 			<div>
 				<h2>精彩评论</h2>
@@ -55,7 +66,7 @@
 	<!-- 模版 -->
 	<div class="template" style="display: none;">
 		<li id="template-sound" class="sound-list">
-			<span class="jvc-tag"></span>
+			<b><span class="jvc-tag"></span> </b>
 			<span class="jvc-name"></span>
 			<span class="sound-from">
 				<img src="" class="jvc-icon">
@@ -64,7 +75,7 @@
 		</li>
 		<li id="template-album" class="other-albums ">
 			<a href="" class="jvc-link">
-				<p><img src="" class="jvc-cover" ></p>
+				<div><img src="" class="jvc-cover" ></div>
 				<p class="jvc-name"></p>
 			</a>
 		</li>
