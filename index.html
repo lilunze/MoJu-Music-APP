@@ -19,7 +19,7 @@
 	<div class="music-well">
 		<nav class="nav">
 			<div class="logo"></div>
-			<div class="search"><input type="text" placeholder="搜索音乐、歌词、电台" id="keywords"><a href="javascript:void(0)" id="search"></a></div>
+			<div class="search"><input type="search" placeholder="搜索音乐、歌词、电台" id="keywords"><a href="javascript:void(0)" id="search"></a></div>
 		</nav>
 		 
 		<div class="carousel">
@@ -138,9 +138,9 @@
 
    var interval=setInterval(function(){next()},5000);
    $('.carousel').swipe({
-        // click: function(event, target) {
-        //         window.location.href=$(target).parent().attr('href')
-        //     },
+        click: function(event, target) {
+                window.location.href=$(target).parent().attr('href')
+            },
         swipeLeft:function(){
             next();
             clearInterval(interval);
@@ -152,7 +152,7 @@
             interval=setInterval(function(){next()},5000);
         },
         excludedElements:"",
-        threshold: 75
+        threshold: 20
     })
 	$(function(){
 		// 获取今日推荐内容
