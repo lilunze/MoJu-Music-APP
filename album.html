@@ -14,10 +14,12 @@
     </script>
 </head>
 <body>
-	<div class="nav">
-			<a class="home" href="./index.html"><</a>
-			<span>专辑</span>
-	</div>
+	<!-- 导航 -->
+	<nav class="subnav">
+		<a class="logo" href="javascript:void()" onclick="window.history.back()"></a>
+		<div class="title"><span class="jvc-name">专辑</span></div>
+	</nav>
+	<!-- 导航 -->
 
 	<!-- 内容 -->
 	<div class="wrapper">
@@ -144,7 +146,7 @@
 		$.ajax({
 			url:'http://47.94.100.222/change.php',
 			dataType:'json',
-			data:{'url':'http://www.app-echo.com/api/album/list?limit=20&page=2&condition=1%3'+type+'%2C2%3'+age},
+			data:{'url':'http://www.app-echo.com/api/album/list?limit=18&page=2&condition=1%3'+type+'%2C2%3'+age},
 			type:'POST',
 			success:function(res){
 				var lists=res.list;

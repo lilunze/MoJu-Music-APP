@@ -138,7 +138,15 @@ h2{text-align: center;}
 .sound-info .sound-img img
 {
     width: 100%;
-    height: 100%;
+    height: 100%;   
+}
+.sound-info .sound-img img.active
+{
+    animation: circle 5s infinite linear;
+}
+@-webkit-keyframes circle{
+    0%{ transform:rotate(0deg)}
+    100%{ transform:rotate(360deg)}
 }
 .sound-info .audio-control{
     position: absolute;
