@@ -32,5 +32,6 @@ a{text-decoration: none;color:inherit;}
     border-bottom:1px solid #535353;}
 .love{position:absolute;bottom:.15rem;}
 .jvc-like,.jvc-play,.jvc-share{
-    color:coral;
+    color:crimson;
 }
+.on{color:crimson;}
