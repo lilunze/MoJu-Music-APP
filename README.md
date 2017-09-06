@@ -241,7 +241,21 @@ http://www.app-echo.com/api/channel/index?tag_id=参数
 
 以上是作者分析的大部分常用的API，基本上包含了大部分的信息，如果想要更多细致的内容可以自己深入分析，或者给作者提需求。
 
+- 搜索
+
+```
+http://www.app-echo.com/api/search/sound?keyword=参数&page=参数&limit=参数&src=0'
+```
+
+传递的参数
+|key|type|含义|
+|:---:|:---:|:---:|
+|keywords|string|搜索关键字|
+|page|num|返回结果的页码信息|
+|limit|num|每页返回的结果数|
+
 下面附上作者发现的比较好的API资源链接：
 
 [知乎资源](https://www.zhihu.com/question/27817786?from=profile_question_card)
 [github资源](https://github.com/TonnyL/Awesome_APIs/blob/master/Chinese.md)
+
