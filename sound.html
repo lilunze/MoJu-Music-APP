@@ -92,7 +92,9 @@
 	
 	var id = location.search;
 	var p=null;
-	id= id.substring(4,id.length);
+	var local_id=localStorage.getItem('sound_id');
+	id= id.substring(4,id.length)||local_id;
+	localStorage.setItem('sound_id',id);
 	
 	// 获取专辑详细信息
 	$.ajax({

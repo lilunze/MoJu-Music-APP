@@ -1,16 +1,16 @@
-﻿{
+{
 	"@platforms": [
 		"android",
 		"iPhone",
 		"iPad"
 	],
 	"id": "H52CECDC1",/*应用的标识，创建应用时自动生成，勿手动修改*/
-	"name": "Music-APP",/*应用名称，程序桌面图标名称*/
+	"name": "MOJU",/*应用名称，程序桌面图标名称*/
 	"version": {
-		"name": "1.0",/*应用版本名称*/
+		"name": "1.1.0",/*应用版本名称*/
 		"code": ""
 	},
-	"description": "",/*应用描述信息*/
+	"description": "基于H5+制作的Music Hybird APP",/*应用描述信息*/
 	"icons": {
 		"72": "icon.png"
 	},
@@ -105,7 +105,8 @@
 		},
 		"NativeObj": {
 			"description": "原生对象"
-		}
+		},
+		"OAuth": {}
 	},
 	"plus": {
 		"splashscreen": {
@@ -134,28 +135,30 @@
 				"password": "",/*Android应用打包使用密钥库中证书的密码*/
 				"aliasname": "",/*Android应用打包使用密钥库中证书的别名*/
 				"permissions": [
-					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
-					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
-					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
-					"<uses-permission android:name=\"android.permission.VIBRATE\"/>",
-					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
-					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
-					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
-					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
-					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
-					"<uses-permission android:name=\"android.permission.CAMERA\"/>",
 					"<uses-permission android:name=\"android.permission.RECORD_AUDIO\"/>",
 					"<uses-permission android:name=\"android.permission.GET_ACCOUNTS\"/>",
+					"<uses-permission android:name=\"android.permission.CHANGE_NETWORK_STATE\"/>",
 					"<uses-permission android:name=\"android.permission.MODIFY_AUDIO_SETTINGS\"/>",
-					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.MOUNT_UNMOUNT_FILESYSTEMS\"/>",
+					"<uses-permission android:name=\"android.permission.READ_CONTACTS\"/>",
 					"<uses-permission android:name=\"android.permission.CHANGE_WIFI_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_PHONE_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.VIBRATE\"/>",
+					"<uses-permission android:name=\"android.permission.READ_LOGS\"/>",
 					"<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
-					"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
 					"<uses-permission android:name=\"android.permission.FLASHLIGHT\"/>",
+					"<uses-permission android:name=\"android.permission.CALL_PHONE\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_WIFI_STATE\"/>",
 					"<uses-permission android:name=\"android.permission.ACCESS_COARSE_LOCATION\"/>",
+					"<uses-feature android:name=\"android.hardware.camera.autofocus\"/>",
 					"<uses-feature android:name=\"android.hardware.camera\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_CONTACTS\"/>",
 					"<uses-permission android:name=\"android.permission.ACCESS_FINE_LOCATION\"/>",
-					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
+					"<uses-permission android:name=\"android.permission.RECEIVE_USER_PRESENT\"/>",
+					"<uses-permission android:name=\"android.permission.ACCESS_NETWORK_STATE\"/>",
+					"<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>",
+					"<uses-permission android:name=\"android.permission.RECEIVE_BOOT_COMPLETED\"/>",
+					"<uses-permission android:name=\"android.permission.CAMERA\"/>"
 				]
 			},
 			"orientation": [
@@ -224,8 +227,9 @@
 					"mdpi": "", /*普通屏启动图片，分辨率：240x282*/
 					"ldpi": "", /*大屏启动图片，分辨率：320x442*/
 					/*高分屏启动图片，分辨率：480x762*/
-					"xhdpi": "", /*720P高分屏启动图片，分辨率：720x1242*/
-					"xxhdpi": ""
+					"xhdpi": "C:/Users/Jen/Desktop/a-2.png", /*720P高分屏启动图片，分辨率：720x1242*/
+					"xxhdpi": "C:/Users/Jen/Desktop/a-3.png",
+					"hdpi": "C:/Users/Jen/Desktop/a-1.png"
 				}
 			}
 		}
@@ -342,5 +346,9 @@
 			]
 		}
 	},
-	"fullscreen": false
+	"fullscreen": false,
+	"unpackage": [
+		"LICENSE",
+		"README.md"
+	]
 }

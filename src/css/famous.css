@@ -15,7 +15,6 @@ body{
 a{text-decoration: none;color:inherit;}
 .subnav
 {
-    font-size: .4rem;
     width: 100%;
     height: 1.334rem;
     background: #ff414b;
@@ -45,7 +44,6 @@ a{text-decoration: none;color:inherit;}
     text-align: center;
     height: 100%;
     z-index: 0;
-    padding-top: 0.15rem;
 }
 .subnav .title .jvc-name
 {
@@ -54,9 +52,10 @@ a{text-decoration: none;color:inherit;}
     -webkit-box-orient: vertical;
     text-overflow: ellipsis;
     overflow: hidden;
+    line-height: 1.334rem;
     width: 5rem;
     margin: 0 auto;
-
+	font-size: .4rem;
 }
 
 

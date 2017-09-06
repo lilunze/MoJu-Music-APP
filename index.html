@@ -7,6 +7,7 @@
     <link rel="stylesheet" type="text/css" href="src/css/music.css">
 	<script src="src/js/jquery-1.11.3.min.js"></script>
 	<script src="src/js/jquery.touchSwipe.min.js"></script>
+	<script src="src/js/vue.js"></script>
     <script type="text/javascript">
     	$('html').attr('style','font-size:'+$(window).width()/10+'px');
    		document.addEventListener('plusready', function(){
@@ -91,8 +92,8 @@
 		<ul class="nav-list">
 			<li><a href="./index.html" class="icon-index active"></a></li>
 			<li><a href="./fm.html" class="icon-fm"></a></li>
-			<li><a href="./fm.html" class="icon-play"></a></li>
-			<li><a href="./fm.html" class="icon-mall"></a></li>
+			<li><a href="./sound.html" class="icon-play"></a></li>
+			<li><a href="./mall.html" class="icon-mall"></a></li>
 		</ul>
 	</div>
 </body>
@@ -183,7 +184,7 @@
 			type:'POST',
 			success:function(res){
 				var lists=res.hot_recommend;
-				console.log(lists);
+//				console.log(lists);
 				for(var i=0;i<6;i++)
 				{
 					var id='hot-'+i;

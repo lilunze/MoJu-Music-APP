@@ -16,7 +16,6 @@ h1{font-size: .64rem;}
 p{margin:0;}
 .subnav
 {
-    font-size: .4rem;
     width: 100%;
     height: 1.334rem;
     background: #ff414b;
@@ -46,7 +45,6 @@ p{margin:0;}
     text-align: center;
     height: 100%;
     z-index: 0;
-    padding-top: 0.15rem;
 }
 .subnav .title .jvc-name
 {
@@ -56,7 +54,9 @@ p{margin:0;}
     text-overflow: ellipsis;
     overflow: hidden;
     width: 5rem;
+    line-height: 1.334rem;
     margin: 0 auto;
+    font-size: .4rem;
 
 }
 .rankTop{
